@@ -8,26 +8,14 @@ namespace Project
     public class CameraSelector : MonoBehaviour
     {
         [SerializeField]
-        CanvasGroup toggleXY;
+        Button toggleXY;
         [SerializeField]
-        CanvasGroup toggleXZ;
+        Button toggleXZ;
         [SerializeField]
-        CanvasGroup toggleYZ;
+        Button toggleYZ;
 
         private void Start()
         {
-            switch(PlayerMove.CurrentAxis)
-            {
-                case PlayerMove.Axis.XZ:
-                    toggleXZ.GetComponent<Toggle>().isOn = true;
-                    break;
-                case PlayerMove.Axis.YZ:
-                    toggleYZ.GetComponent<Toggle>().isOn = true;
-                    break;
-                default:
-                    toggleXY.GetComponent<Toggle>().isOn = true;
-                    break;
-            }
             UpdateToggles();
         }
 
@@ -35,8 +23,7 @@ namespace Project
         {
             if(axis == true)
             {
-                PlayerMove.CurrentAxis = PlayerMove.Axis.XY;
-                UpdateToggles();
+                OnScreenClicked(PlayerMove.Axis.XY);
             }
         }
 
@@ -44,8 +31,7 @@ namespace Project
         {
             if (axis == true)
             {
-                PlayerMove.CurrentAxis = PlayerMove.Axis.XZ;
-                UpdateToggles();
+                OnScreenClicked(PlayerMove.Axis.XZ);
             }
         }
 
@@ -53,26 +39,36 @@ namespace Project
         {
             if (axis == true)
             {
-                PlayerMove.CurrentAxis = PlayerMove.Axis.YZ;
-                UpdateToggles();
+                OnScreenClicked(PlayerMove.Axis.YZ);
             }
+        }
+
+        public void OnScreenClicked(int axis)
+        {
+            OnScreenClicked((PlayerMove.Axis)axis);
+        }
+
+        public void OnScreenClicked(PlayerMove.Axis axis)
+        {
+            PlayerMove.CurrentAxis = axis;
+            UpdateToggles();
         }
 
         private void UpdateToggles()
         {
-            toggleXY.alpha = 1;
-            toggleXZ.alpha = 1;
-            toggleYZ.alpha = 1;
+            toggleXY.interactable = true;
+            toggleXZ.interactable = true;
+            toggleYZ.interactable = true;
             switch (PlayerMove.CurrentAxis)
             {
                 case PlayerMove.Axis.XZ:
-                    toggleXZ.alpha = 0;
+                    toggleXZ.interactable = false;
                     break;
                 case PlayerMove.Axis.YZ:
-                    toggleYZ.alpha = 0;
+                    toggleYZ.interactable = false;
                     break;
                 default:
-                    toggleXY.alpha = 0;
+                    toggleXY.interactable = false;
                     break;
             }
         }

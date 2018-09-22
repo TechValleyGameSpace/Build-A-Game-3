@@ -147,7 +147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1036394483052190}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.04833746, y: 0.78305846, z: -0.099965096}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4763200862718062}
@@ -359,8 +359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1224ab27602f70c45b0543ae25168691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axis: 0
   moveForceAcceleration: 2500
+  turnSmoothFactor: 10
 --- !u!114 &114725548272738974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -686,7 +686,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5
+      scalar: 20
       minScalar: 0.5
       maxCurve:
         serializedVersion: 2
@@ -1211,7 +1211,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 200
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -3849,9 +3849,9 @@ ParticleSystem:
   CollisionModule:
     enabled: 0
     serializedVersion: 3
-    type: 0
+    type: 1
     collisionMode: 0
-    colliderForce: 0
+    colliderForce: 1000
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
@@ -4025,7 +4025,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 512
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5

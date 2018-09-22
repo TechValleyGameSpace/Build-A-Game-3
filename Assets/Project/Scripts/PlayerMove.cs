@@ -10,7 +10,7 @@ namespace Project
     {
         public enum Axis
         {
-            XY,
+            XY = 0,
             XZ,
             YZ
         }
