@@ -10,7 +10,11 @@ namespace Project
         Transform target;
 
         // Update is called once per frame
-        void FixedUpdate()
+        //void FixedUpdate()
+        //{
+        //    transform.position = target.position;
+        //}
+        public void LateUpdate()
         {
             transform.position = target.position;
         }
