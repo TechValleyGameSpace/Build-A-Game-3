@@ -58,6 +58,8 @@ namespace Project
             // FIXME: remove voxels based on distance, then create new ones.
             SetPosition(player.position, ref currentPlayerPosition);
             AdjustXPlane();
+            AdjustYPlane();
+            AdjustZPlane();
         }
 
         public IEnumerable<Vector3Int> SurroundingCoordinates(Vector3Int fromPosition)
@@ -96,7 +98,7 @@ namespace Project
             }
         }
 
-        public IEnumerable<Vector3Int> SurroundingCoordinatesY(Vector3Int fromPosition, params int[] ys)
+        public IEnumerable<Vector3Int> NextCoordinatesY(Vector3Int fromPosition, params int[] ys)
         {
             Vector3Int nextCoordinate = fromPosition;
             for (int x = (fromPosition.x - radiusFromPlayer); x <= (fromPosition.x + radiusFromPlayer); ++x)
@@ -114,7 +116,7 @@ namespace Project
             }
         }
 
-        public IEnumerable<Vector3Int> SurroundingCoordinatesZ(Vector3Int fromPosition, params int[] zs)
+        public IEnumerable<Vector3Int> NextCoordinatesZ(Vector3Int fromPosition, params int[] zs)
         {
             Vector3Int nextCoordinate = fromPosition;
             for (int x = (fromPosition.x - radiusFromPlayer); x <= (fromPosition.x + radiusFromPlayer); ++x)
@@ -173,10 +175,51 @@ namespace Project
             }
         }
 
-        private void AdjustXPlane(int removeX, int addX)
+        private void AdjustYPlane()
+        {
+            if (currentPlayerPosition.y > lastPlayerPosition.y)
+            {
+                AdjustYPlane((lastPlayerPosition.y - radiusFromPlayer), (lastPlayerPosition.y + radiusFromPlayer + 1));
+                lastPlayerPosition.y += 1;
+            }
+            else if (currentPlayerPosition.y < lastPlayerPosition.y)
+            {
+                AdjustYPlane((lastPlayerPosition.y + radiusFromPlayer), (lastPlayerPosition.y - radiusFromPlayer - 1));
+                lastPlayerPosition.y -= 1;
+            }
+        }
+
+        private void AdjustZPlane()
+        {
+            if (currentPlayerPosition.z > lastPlayerPosition.z)
+            {
+                AdjustZPlane((lastPlayerPosition.z - radiusFromPlayer), (lastPlayerPosition.z + radiusFromPlayer + 1));
+                lastPlayerPosition.z += 1;
+            }
+            else if (currentPlayerPosition.z < lastPlayerPosition.z)
+            {
+                AdjustZPlane((lastPlayerPosition.z + radiusFromPlayer), (lastPlayerPosition.z - radiusFromPlayer - 1));
+                lastPlayerPosition.z -= 1;
+            }
+        }
+
+        private void AdjustXPlane(int remove, int add)
+        {
+            AdjustPlane(NextCoordinatesX(lastPlayerPosition, remove, add));
+        }
+        private void AdjustYPlane(int remove, int add)
+        {
+            AdjustPlane(NextCoordinatesY(lastPlayerPosition, remove, add));
+        }
+        private void AdjustZPlane(int remove, int add)
+        {
+            AdjustPlane(NextCoordinatesZ(lastPlayerPosition, remove, add));
+        }
+
+        private void AdjustPlane(IEnumerable<Vector3Int> planeDirection)
         {
             bool toAdd = false;
-            foreach (Vector3Int nextCoordinate in NextCoordinatesX(lastPlayerPosition, removeX, addX))
+            foreach (Vector3Int nextCoordinate in planeDirection)
             {
                 // Remove voxels in the negative X-direction
                 if ((toAdd == false) && (CreatedVoxels.ContainsKey(nextCoordinate) == true))

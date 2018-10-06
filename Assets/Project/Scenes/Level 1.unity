@@ -118,7 +118,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224869148723656200, guid: 6482dc26a6defa94ca44c6e789ab325d,
     type: 2}
   m_PrefabInternal: {fileID: 1750855078}
---- !u!1001 &63778838
+--- !u!1001 &161433676
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -544,7 +544,7 @@ RectTransform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4763200862718062, guid: ddb636d0dbba8d54db861d7229157328,
     type: 2}
-  m_PrefabInternal: {fileID: 63778838}
+  m_PrefabInternal: {fileID: 161433676}
 --- !u!224 &1071108361 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 22440622, guid: 9c21726528fb646faada8f5b717daf17,
