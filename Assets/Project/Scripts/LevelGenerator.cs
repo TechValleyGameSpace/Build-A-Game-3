@@ -22,16 +22,19 @@ namespace Project
         [SerializeField]
         Vector3Int initialPosition = new Vector3Int();
 
-        List<Voxel> createdVoxels = null;
+        Dictionary<Vector3Int, Voxel> createdVoxels = null;
         List<Voxel> getVoxelCache = null;
+        Vector3 playerPosition;
+        Vector3Int currentPlayerPosition = Vector3Int.zero;
+        Vector3Int lastPlayerPosition = Vector3Int.zero;
 
-        public List<Voxel> CreatedVoxels
+        public Dictionary<Vector3Int, Voxel> CreatedVoxels
         {
             get
             {
-                if(createdVoxels == null)
+                if (createdVoxels == null)
                 {
-                    createdVoxels = new List<Voxel>((int)Mathf.Pow(radiusFromPlayer * 2, 3));
+                    createdVoxels = new Dictionary<Vector3Int, Voxel>((int)Mathf.Pow(radiusFromPlayer * 2, 3));
                 }
                 return createdVoxels;
             }
@@ -40,34 +43,21 @@ namespace Project
         // Use this for initialization
         void Start()
         {
-            Voxel prefab, instance;
-            Vector3 location;
-            foreach(Vector3Int pos in SurroundingCoordinates(Vector3Int.zero))
+            foreach (Vector3Int pos in SurroundingCoordinates(Vector3Int.zero))
             {
-                // Grab a voxel
-                prefab = GetVoxel(NoiseValue(pos));
-                if (prefab != null)
-                {
-                    // Update location
-                    location.x = pos.x;
-                    location.y = pos.y;
-                    location.z = pos.z;
-
-                    // Grab an instance of the voxel
-                    instance = Singleton.Get<PoolingManager>().GetInstance<Voxel>(prefab);
-                    CreatedVoxels.Add(instance);
-
-                    // Position the voxel
-                    instance.transform.position = location;
-                }
+                AddVoxel(pos);
             }
+
+            // Calculate the player position
+            SetPosition(player.position, ref lastPlayerPosition);
         }
 
-        private float NoiseValue(Vector3Int fromPosition)
+        // Update is called once per frame
+        void Update()
         {
-            Vector3 offsetCoordinate = fromPosition - initialPosition;
-            offsetCoordinate *= noiseCoordinate;
-            return Perlin.Noise(offsetCoordinate);
+            // FIXME: remove voxels based on distance, then create new ones.
+            SetPosition(player.position, ref currentPlayerPosition);
+            AdjustXPlane();
         }
 
         public IEnumerable<Vector3Int> SurroundingCoordinates(Vector3Int fromPosition)
@@ -77,7 +67,7 @@ namespace Project
             {
                 for (int y = (fromPosition.y - radiusFromPlayer); y <= (fromPosition.y + radiusFromPlayer); ++y)
                 {
-                    for (int z = (fromPosition.z - radiusFromPlayer); z <= (fromPosition.z - radiusFromPlayer); ++z)
+                    for (int z = (fromPosition.z - radiusFromPlayer); z <= (fromPosition.z + radiusFromPlayer); ++z)
                     {
                         nextCoordinate.x = x;
                         nextCoordinate.y = y;
@@ -88,16 +78,125 @@ namespace Project
             }
         }
 
-        // Update is called once per frame
-        void Update()
+        public IEnumerable<Vector3Int> NextCoordinatesX(Vector3Int fromPosition, params int[] xs)
         {
-            // FIXME: remove voxels based on distance, then create new ones.
+            Vector3Int nextCoordinate = fromPosition;
+            for (int y = (fromPosition.y - radiusFromPlayer); y <= (fromPosition.y + radiusFromPlayer); ++y)
+            {
+                for (int z = (fromPosition.z - radiusFromPlayer); z <= (fromPosition.z + radiusFromPlayer); ++z)
+                {
+                    foreach(int x in xs)
+                    {
+                        nextCoordinate.x = x;
+                        nextCoordinate.y = y;
+                        nextCoordinate.z = z;
+                        yield return nextCoordinate;
+                    }
+                }
+            }
+        }
+
+        public IEnumerable<Vector3Int> SurroundingCoordinatesY(Vector3Int fromPosition, params int[] ys)
+        {
+            Vector3Int nextCoordinate = fromPosition;
+            for (int x = (fromPosition.x - radiusFromPlayer); x <= (fromPosition.x + radiusFromPlayer); ++x)
+            {
+                for (int z = (fromPosition.z - radiusFromPlayer); z <= (fromPosition.z + radiusFromPlayer); ++z)
+                {
+                    foreach (int y in ys)
+                    {
+                        nextCoordinate.x = x;
+                        nextCoordinate.y = y;
+                        nextCoordinate.z = z;
+                        yield return nextCoordinate;
+                    }
+                }
+            }
+        }
+
+        public IEnumerable<Vector3Int> SurroundingCoordinatesZ(Vector3Int fromPosition, params int[] zs)
+        {
+            Vector3Int nextCoordinate = fromPosition;
+            for (int x = (fromPosition.x - radiusFromPlayer); x <= (fromPosition.x + radiusFromPlayer); ++x)
+            {
+                for (int y = (fromPosition.y - radiusFromPlayer); y <= (fromPosition.y + radiusFromPlayer); ++y)
+                {
+                    foreach (int z in zs)
+                    {
+                        nextCoordinate.x = x;
+                        nextCoordinate.y = y;
+                        nextCoordinate.z = z;
+                        yield return nextCoordinate;
+                    }
+                }
+            }
+        }
+
+        private Voxel AddVoxel(Vector3Int pos)
+        {
+            // Calculate position
+            Vector3 offsetCoordinate = pos - initialPosition;
+            offsetCoordinate *= noiseCoordinate;
+
+            // Grab a voxel
+            Voxel instance = null, prefab = GetVoxel(Perlin.Noise(offsetCoordinate));
+            if (prefab != null)
+            {
+                // Grab an instance of the voxel
+                instance = Singleton.Get<PoolingManager>().GetInstance<Voxel>(prefab);
+                CreatedVoxels.Add(pos, instance);
+
+                // Position the voxel
+                instance.transform.position = pos;
+            }
+            return instance;
+        }
+
+        private static void SetPosition(Vector3 pos, ref Vector3Int result)
+        {
+            result.x = Mathf.FloorToInt(pos.x);
+            result.y = Mathf.FloorToInt(pos.y);
+            result.z = Mathf.FloorToInt(pos.z);
+        }
+
+        private void AdjustXPlane()
+        {
+            if (currentPlayerPosition.x > lastPlayerPosition.x)
+            {
+                AdjustXPlane((lastPlayerPosition.x - radiusFromPlayer), (lastPlayerPosition.x + radiusFromPlayer + 1));
+                lastPlayerPosition.x += 1;
+            }
+            else if (currentPlayerPosition.x < lastPlayerPosition.x)
+            {
+                AdjustXPlane((lastPlayerPosition.x + radiusFromPlayer), (lastPlayerPosition.x - radiusFromPlayer - 1));
+                lastPlayerPosition.x -= 1;
+            }
+        }
+
+        private void AdjustXPlane(int removeX, int addX)
+        {
+            bool toAdd = false;
+            foreach (Vector3Int nextCoordinate in NextCoordinatesX(lastPlayerPosition, removeX, addX))
+            {
+                // Remove voxels in the negative X-direction
+                if ((toAdd == false) && (CreatedVoxels.ContainsKey(nextCoordinate) == true))
+                {
+                    PoolingManager.ReturnToPool(CreatedVoxels[nextCoordinate]);
+                    CreatedVoxels.Remove(nextCoordinate);
+                }
+                else if (toAdd == true)
+                {
+                    // Add voxels in the positive X-direction
+                    AddVoxel(nextCoordinate);
+                }
+                toAdd = !toAdd;
+            }
         }
 
         public Voxel GetVoxel(float value)
         {
             // Setup the cache list
-            if(getVoxelCache == null)
+            if (getVoxelCache == null)
             {
                 getVoxelCache = new List<Voxel>(allVoxels.Length);
             }
@@ -107,7 +206,7 @@ namespace Project
             foreach (Voxel consider in allVoxels)
             {
                 // Check if value is in-between
-                if((value > consider.Range.x) && (value < consider.Range.y))
+                if ((value > consider.Range.x) && (value < consider.Range.y))
                 {
                     getVoxelCache.Add(consider);
                 }
@@ -115,10 +214,10 @@ namespace Project
 
             // Return a random voxel
             Voxel returnVoxel = null;
-            if(getVoxelCache.Count > 0)
+            if (getVoxelCache.Count > 0)
             {
                 returnVoxel = getVoxelCache[0];
-                if(getVoxelCache.Count > 1)
+                if (getVoxelCache.Count > 1)
                 {
                     returnVoxel = getVoxelCache[Random.Range(0, getVoxelCache.Count)];
                 }
