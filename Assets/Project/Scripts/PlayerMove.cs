@@ -19,7 +19,7 @@ namespace Project
         {
             get;
             set;
-        }
+        } = Axis.XZ;
 
         [SerializeField]
         float moveForceAcceleration = 10f;
