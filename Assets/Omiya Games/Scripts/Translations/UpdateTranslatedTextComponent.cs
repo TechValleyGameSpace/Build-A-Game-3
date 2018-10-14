@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace OmiyaGames.Translations
 {
     ///-----------------------------------------------------------------------
-    /// <copyright file="AudioFinder.cs" company="Omiya Games">
+    /// <copyright file="UpdateTranslatedTextComponent.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2018 Omiya Games
@@ -117,7 +117,7 @@ namespace OmiyaGames.Translations
 
             // Add the new text component
             TranslatedTextMeshPro newTranslation = parentObject.AddComponent<TranslatedTextMeshPro>();
-            TextMeshProResizer newResizer = parentObject.AddComponent<TextMeshProResizer>();
+            //TextMeshProResizer newResizer = parentObject.AddComponent<TextMeshProResizer>();
 
             // Copy the old translation properties into the new one
             newTranslation.TranslationKey = translationKey;

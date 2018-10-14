@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Project
 {
-    public class Voxel : OmiyaGames.IPooledObject
+    public class Voxel : OmiyaGames.PooledObject
     {
         [SerializeField]
         Vector2 range;

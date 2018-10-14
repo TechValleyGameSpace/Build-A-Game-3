@@ -157,6 +157,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114647567530275892, guid: ddb636d0dbba8d54db861d7229157328,
+        type: 2}
+      propertyPath: radiusFromPlayer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddb636d0dbba8d54db861d7229157328, type: 2}
   m_IsPrefabAsset: 0
@@ -432,7 +437,7 @@ RectTransform:
   m_Children:
   - {fileID: 12389911}
   m_Father: {fileID: 921143553}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -904,7 +909,7 @@ RectTransform:
   - {fileID: 1196367809}
   - {fileID: 1356835094}
   m_Father: {fileID: 921143553}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1399,7 +1404,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 11491956, guid: e6de9bbfd0f4a40efae8b92c0481a228, type: 2}
+    - target: {fileID: 0}
       propertyPath: backgroundMusic
       value: 
       objectReference: {fileID: 8300000, guid: 4bc7856847e2055498c2691bc4ce5ff8, type: 3}

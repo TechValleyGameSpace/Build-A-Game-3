@@ -28,7 +28,7 @@ namespace OmiyaGames.Global
     /// THE SOFTWARE.
     /// </copyright>
     /// <author>Taro Omiya</author>
-    /// <date>5/18/2015</date>
+    /// <date>10/9/2018</date>
     ///-----------------------------------------------------------------------
     /// <summary>
     /// A singleton script that pools <code>GameObjects</code> for re-use.  It will
@@ -36,37 +36,37 @@ namespace OmiyaGames.Global
     /// 
     /// Will also call events on <code>IPooledObject</code>s.
     /// </summary>
+    /// <remarks>
+    /// Revision History:
+    /// <list type="table">
+    /// <listheader>
+    /// <description>Date</description>
+    /// <description>Name</description>
+    /// <description>Description</description>
+    /// </listheader>
+    /// <item>
+    /// <description>5/18/2015</description>
+    /// <description>Taro</description>
+    /// <description>Initial verison</description>
+    /// </item>
+    /// <item>
+    /// <description>10/9/2018</description>
+    /// <description>Taro</description>
+    /// <description>Optimizing performance, which requires forcing the type
+    /// Pooling Manager manages <code>IPooledObject</code>-only.</description>
+    /// </item>
+    /// </list>
+    /// </remarks>
     /// <seealso cref="IPooledObject"/>
     public class PoolingManager : ISingletonScript
     {
         [SerializeField]
-        GameObject[] objectsToPreload = null;
-
-        struct PoolSet
-        {
-            public readonly bool containsPoolScript;
-            public readonly Dictionary<GameObject, IPooledObject> allClonedInstances;
-
-            public PoolSet(GameObject original)
-            {
-                IPooledObject script = original.GetComponent<IPooledObject>();
-                if (script != null)
-                {
-                    script.OriginalPrefab = original;
-                    containsPoolScript = true;
-                }
-                else
-                {
-                    containsPoolScript = false;
-                }
-                allClonedInstances = new Dictionary<GameObject, IPooledObject>();
-            }
-        }
+        IPooledObject[] objectsToPreload = null;
 
         Transform poolingParent = null;
-        readonly Dictionary<GameObject, PoolSet> allPooledObjects = new Dictionary<GameObject, PoolSet>();
+        readonly Dictionary<IPooledObject, PoolSet> allPooledObjects = new Dictionary<IPooledObject, PoolSet>();
 
-        public static void ReturnToPool(Component script)
+        public static void ReturnToPool(IPooledObject script)
         {
             if (script != null)
             {
@@ -91,11 +91,11 @@ namespace OmiyaGames.Global
             poolingParent = transform;
 
             // Preload everything
-            GameObject clone = null;
-            for (int index = 0; index < objectsToPreload.Length; ++index)
+            IPooledObject clone = null;
+            foreach (IPooledObject preloadObject in objectsToPreload)
             {
-                clone = GetInstance(objectsToPreload[index]);
-                clone.SetActive(false);
+                clone = GetInstance(preloadObject);
+                clone.gameObject.SetActive(false);
             }
         }
 
@@ -107,136 +107,115 @@ namespace OmiyaGames.Global
             // Do nothing
         }
 
-        public GameObject GetInstance(GameObject prefab, Vector3 position, Quaternion rotation)
+        public C GetInstance<C>(C prefab, Vector3 position, Quaternion rotation) where C : IPooledObject
         {
             // Cover the edge case
-            GameObject returnObject = null;
+            C returnScript = null;
             if (prefab != null)
             {
                 // Check if the prefab is already pooled
-                if (allPooledObjects.ContainsKey(prefab) == true)
+                PoolSet pooledSet;
+                if (allPooledObjects.TryGetValue(prefab, out pooledSet) == true)
                 {
-                    // Grab the pooled objects
-                    PoolSet pooledSet = allPooledObjects[prefab];
-
                     // Check if there are any deactivated objects
-                    foreach (KeyValuePair<GameObject, IPooledObject> cloneInstance in pooledSet.allClonedInstances)
+                    if (pooledSet.InactiveInstances.Count > 0)
                     {
-                        if (cloneInstance.Key.activeSelf == false)
+                        foreach (KeyValuePair<GameObject, IPooledObject> cloneInstance in pooledSet.InactiveInstances)
                         {
                             // If so, position this object properly
-                            returnObject = cloneInstance.Key;
-                            Transform cloneTransform = returnObject.transform;
-                            cloneTransform.position = position;
-                            cloneTransform.rotation = rotation;
+                            GameObject clone = cloneInstance.Key;
+                            clone.transform.position = position;
+                            clone.transform.rotation = rotation;
 
                             // Activate this object and return it
-                            returnObject.SetActive(true);
+                            clone.SetActive(true);
 
                             // If this set has a script, indicate this GameObject was activated
-                            if (cloneInstance.Value != null)
-                            {
-                                cloneInstance.Value.Activated(this);
-                            }
+                            returnScript = (C)cloneInstance.Value;
+                            returnScript.AfterActivated(this);
                             break;
                         }
                     }
-
-                    // If not, initialize a new object
-                    if (returnObject == null)
+                    else
                     {
-                        // Initialized a new GameObject
-                        returnObject = CloneNewInstance(prefab, pooledSet, position, rotation);
+                        // If not, initialized a new GameObject
+                        GameObject clone;
+                        CloneNewInstance(prefab, pooledSet, position, rotation, out clone, out returnScript);
                     }
                 }
                 else
                 {
                     // Create a new entry in the dictionary
-                    PoolSet pooledSet = new PoolSet(prefab);
+                    pooledSet = new PoolSet(prefab);
                     allPooledObjects.Add(prefab, pooledSet);
 
                     // Initialized a new GameObject
-                    returnObject = CloneNewInstance(prefab, pooledSet, position, rotation);
+                    GameObject clone;
+                    CloneNewInstance(prefab, pooledSet, position, rotation, out clone, out returnScript);
                 }
             }
-            return returnObject;
-        }
-
-        public GameObject GetInstance(GameObject prefab)
-        {
-            // Cover the edge case
-            GameObject returnObject = null;
-            if (prefab != null)
-            {
-                returnObject = GetInstance(prefab, prefab.transform.position, prefab.transform.rotation);
-            }
-            return returnObject;
-        }
-
-        public C GetInstance<C>(C script, Vector3 position, Quaternion rotation) where C : Component
-        {
-            C returnScript = default(C);
-            if(script != null)
-            {
-                GameObject instance = GetInstance(script.gameObject, position, rotation);
-                returnScript = instance.GetComponent<C>();
-            }
             return returnScript;
         }
 
-        public C GetInstance<C>(C script) where C : Component
+        public C GetInstance<C>(C prefab) where C : IPooledObject
         {
-            C returnScript = default(C);
-            if (script != null)
-            {
-                GameObject instance = GetInstance(script.gameObject);
-                returnScript = instance.GetComponent<C>();
-            }
-            return returnScript;
+            return GetInstance(prefab, prefab.transform.position, prefab.transform.rotation);
         }
 
-        GameObject CloneNewInstance(GameObject prefab, PoolSet pooledSet, Vector3 position, Quaternion rotation)
+        private void CloneNewInstance<C>(C prefab, PoolSet pooledSet, Vector3 position, Quaternion rotation, out GameObject instanceObject, out C instanceScript) where C : IPooledObject
         {
             // Initialized a new GameObject
-            GameObject returnObject = (GameObject)Instantiate(prefab, position, rotation);
+            instanceObject = Instantiate(prefab.gameObject, position, rotation);
 
             // Update this object's parent so it won't get destroyed easily
-            returnObject.transform.parent = poolingParent;
+            instanceObject.transform.parent = poolingParent;
 
             // Grab the script from the clone if there is any in the original
-            IPooledObject script = null;
-            if (pooledSet.containsPoolScript == true)
+            instanceScript = null;
+            if (pooledSet.ContainsPoolScript == true)
             {
-                script = returnObject.GetComponent<IPooledObject>();
-                script.OriginalPrefab = prefab;
+                instanceScript = instanceObject.GetComponent<C>();
+                instanceScript.Pool = pooledSet;
             }
 
             // Add this new GameObject and script into the dictionary
-            pooledSet.allClonedInstances.Add(returnObject, script);
+            pooledSet.ActiveInstances.Add(instanceObject, instanceScript);
 
             // Indicate to the script the object was initialized
-            if (script != null)
+            if (instanceScript != null)
             {
-                script.Initialized(this);
+                instanceScript.AfterInitialized(this);
             }
-            return returnObject;
         }
 
         internal void DestroyAll()
         {
+            List<IPooledObject> deactivatedScripts = new List<IPooledObject>();
+
             // Deactivate everything
             foreach (PoolSet pool in allPooledObjects.Values)
             {
-                foreach (KeyValuePair<GameObject, IPooledObject> set in pool.allClonedInstances)
+                // Clear the scripts to deactivate
+                deactivatedScripts.Clear();
+                if (pool.ContainsPoolScript == true)
                 {
-                    if (set.Key.activeSelf == true)
+                    deactivatedScripts.Capacity = pool.ActiveInstances.Count;
+                }
+
+                // Go through all the active pooled items
+                foreach (KeyValuePair<GameObject, IPooledObject> set in pool.ActiveInstances)
+                {
+                    set.Key.SetActive(false);
+                    if (set.Value != null)
                     {
-                        set.Key.SetActive(false);
-                        if (set.Value != null)
-                        {
-                            set.Value.AfterDeactivate(this);
-                        }
+                        deactivatedScripts.Add(set.Value);
                     }
+                }
+
+                // Indicate script is deactivated
+                foreach(IPooledObject deactivatedScript in deactivatedScripts)
+                {
+                    deactivatedScript.AfterDeactivate(this);
                 }
             }
         }
