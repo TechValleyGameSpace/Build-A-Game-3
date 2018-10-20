@@ -6,6 +6,7 @@ using UnityStandardAssets.CrossPlatformInput;
 namespace Project
 {
     [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Animator))]
     public class PlayerMove : MonoBehaviour
     {
         public enum Axis
@@ -27,15 +28,18 @@ namespace Project
         [Header("Animations")]
         [SerializeField]
         float turnSmoothFactor = 10f;
+        [SerializeField]
+        string propellerSpeedField = "Propeller Speed";
 
         Rigidbody body;
         Vector3 move;
-        Vector3 forward;
+        Animator controller;
 
         // Use this for initialization
         void Start()
         {
             body = GetComponent<Rigidbody>();
+            controller = GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -65,8 +69,13 @@ namespace Project
 
             if(move.sqrMagnitude > 0.01f)
             {
-                forward = move.normalized;
-                transform.forward = Vector3.Lerp(transform.forward, forward, (Time.deltaTime * turnSmoothFactor));
+                move.Normalize();
+                transform.forward = Vector3.Lerp(transform.forward, move, (Time.deltaTime * turnSmoothFactor));
+                controller.SetFloat(propellerSpeedField, move.magnitude);
+            }
+            else
+            {
+                controller.SetFloat(propellerSpeedField, 0f);
             }
 
             // Recalculate move with acceleration
