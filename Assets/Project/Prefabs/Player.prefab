@@ -1250,6 +1250,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveForceAcceleration: 500
+  projectilePrefab: {fileID: 114688163603855100, guid: 131e93046a9621c46847ff6b5a6cae13,
+    type: 2}
+  cooldownDurationSeconds: 0.5
   turnSmoothFactor: 10
   propellerSpeedField: Propeller Speed
 --- !u!114 &114647567530275892

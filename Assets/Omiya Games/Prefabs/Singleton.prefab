@@ -1010,6 +1010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToPreload:
   - {fileID: 114086692014772228, guid: 2bc76f91aad825d468877957f1b84371, type: 2}
+  - {fileID: 114688163603855100, guid: 131e93046a9621c46847ff6b5a6cae13, type: 2}
 --- !u!114 &11492550
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Project
 {
+    [RequireComponent(typeof(BoxCollider))]
     public class Voxel : OmiyaGames.PooledObject
     {
         [SerializeField]

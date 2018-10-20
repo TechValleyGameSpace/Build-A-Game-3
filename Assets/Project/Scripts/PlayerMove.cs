@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using OmiyaGames;
+using OmiyaGames.Global;
 
 namespace Project
 {
@@ -25,6 +27,12 @@ namespace Project
         [SerializeField]
         float moveForceAcceleration = 10f;
 
+        [Header("Projectiles")]
+        [SerializeField]
+        Torpedo projectilePrefab;
+        [SerializeField]
+        float cooldownDurationSeconds = 0.5f;
+
         [Header("Animations")]
         [SerializeField]
         float turnSmoothFactor = 10f;
@@ -34,6 +42,7 @@ namespace Project
         Rigidbody body;
         Vector3 move;
         Animator controller;
+        float lastShot = 0f;
 
         // Use this for initialization
         void Start()
@@ -67,7 +76,7 @@ namespace Project
                     break;
             }
 
-            if(move.sqrMagnitude > 0.01f)
+            if (move.sqrMagnitude > 0.01f)
             {
                 move.Normalize();
                 transform.forward = Vector3.Lerp(transform.forward, move, (Time.deltaTime * turnSmoothFactor));
@@ -83,6 +92,18 @@ namespace Project
             move.y *= moveForceAcceleration * Time.deltaTime;
             move.z *= moveForceAcceleration * Time.deltaTime;
             body.AddForce(move, ForceMode.Acceleration);
+        }
+
+        private void Update()
+        {
+            if ((CrossPlatformInputManager.GetButton("Fire1") == true) && ((Time.time - lastShot) > cooldownDurationSeconds))
+            {
+                Torpedo clone = Singleton.Get<PoolingManager>().GetInstance(projectilePrefab, transform.position, transform.rotation);
+                clone.transform.position = transform.position;
+                clone.transform.rotation = transform.rotation;
+                clone.transform.localScale = Vector3.one;
+                lastShot = Time.time;
+            }
         }
     }
 }
