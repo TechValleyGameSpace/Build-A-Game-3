@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Default Material
+  m_Name: Player-Body Material
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -71,9 +71,9 @@ Material:
     - _FresnelPower: 0.5
     - _FresnelStrength: 0.5
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.289
     - _GlossyReflections: 1
-    - _Metallic: 0
+    - _Metallic: 0.983
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
