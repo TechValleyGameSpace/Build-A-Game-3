@@ -20,8 +20,22 @@ namespace UnityStandardAssets.Utility
 		[SerializeField]
 		private float heightDamping;
 
-		// Use this for initialization
-		void Start() { }
+        [Header("Wall Clip")]
+        [SerializeField]
+        private LayerMask wallMask;
+        [SerializeField]
+        private float sphereCastRadius = 0.5f;
+        [SerializeField]
+        private float minDistance = 1f;
+        [SerializeField]
+        private float distanceDamping = 5f;
+
+        private Ray rayTrace;
+        private RaycastHit info;
+        float lastDistance, targetDistance;
+
+        // Use this for initialization
+        void Start() { }
 
 		// Update is called once per frame
 		void LateUpdate()
@@ -46,10 +60,25 @@ namespace UnityStandardAssets.Utility
 			// Convert the angle into a rotation
 			var currentRotation = Quaternion.Euler(0, currentRotationAngle, 0);
 
-			// Set the position of the camera on the x-z plane to:
-			// distance meters behind the target
-			transform.position = target.position;
-			transform.position -= currentRotation * Vector3.forward * distance;
+            rayTrace.origin = target.position;
+            rayTrace.direction = currentRotation * Vector3.forward;
+            targetDistance = distance;
+            if(Physics.SphereCast(rayTrace, sphereCastRadius, out info, distance, wallMask) == true)
+            {
+                targetDistance = info.distance;
+                if (targetDistance < minDistance)
+                {
+                    targetDistance = minDistance;
+                }
+            }
+
+            // Damp distance
+            lastDistance = Mathf.Lerp(lastDistance, targetDistance, distanceDamping * Time.deltaTime);
+
+            // Set the position of the camera on the x-z plane to:
+            // distance meters behind the target
+            transform.position = target.position;
+			transform.position -= currentRotation * Vector3.forward * lastDistance;
 
 			// Set the height of the camera
 			transform.position = new Vector3(transform.position.x ,currentHeight , transform.position.z);
