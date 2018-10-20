@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 20514873453042632}
   - component: {fileID: 124008348354852570}
   - component: {fileID: 114912427229143984}
+  - component: {fileID: 114444048253494374}
   m_Layer: 8
   m_Name: Camera Y-Z
   m_TagString: Untagged
@@ -40,6 +41,7 @@ GameObject:
   - component: {fileID: 20425284540932014}
   - component: {fileID: 124710006518336574}
   - component: {fileID: 114634299414021596}
+  - component: {fileID: 114063361104218042}
   m_Layer: 8
   m_Name: Camera X-Z
   m_TagString: Untagged
@@ -58,6 +60,7 @@ GameObject:
   - component: {fileID: 20373447535147510}
   - component: {fileID: 124322201216407690}
   - component: {fileID: 114454367651575262}
+  - component: {fileID: 114059754093431526}
   m_Layer: 8
   m_Name: Camera X-Y
   m_TagString: Untagged
@@ -162,7 +165,7 @@ Camera:
   far clip plane: 20
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 2.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -202,7 +205,7 @@ Camera:
   far clip plane: 20
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 2.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -242,7 +245,7 @@ Camera:
   far clip plane: 20
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 2.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -281,6 +284,45 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: -1
+--- !u!114 &114059754093431526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1528863908674582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae1d60af96f3324ebef559c56ace123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearPlane: 3.49
+  perspective: 0
+--- !u!114 &114063361104218042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1500228931154696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae1d60af96f3324ebef559c56ace123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearPlane: 3.49
+  perspective: 1
+--- !u!114 &114444048253494374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1303365973043926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae1d60af96f3324ebef559c56ace123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearPlane: 3.49
+  perspective: 2
 --- !u!114 &114454367651575262
 MonoBehaviour:
   m_ObjectHideFlags: 1
