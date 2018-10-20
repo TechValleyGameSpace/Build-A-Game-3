@@ -98,10 +98,8 @@ namespace Project
         {
             if ((CrossPlatformInputManager.GetButton("Fire1") == true) && ((Time.time - lastShot) > cooldownDurationSeconds))
             {
-                Torpedo clone = Singleton.Get<PoolingManager>().GetInstance(projectilePrefab, transform.position, transform.rotation);
-                clone.transform.position = transform.position;
-                clone.transform.rotation = transform.rotation;
-                clone.transform.localScale = Vector3.one;
+                // FIXME: calculate the rotations properly
+                Torpedo clone = Singleton.Get<PoolingManager>().GetInstance(projectilePrefab, transform.position, Quaternion.identity);
                 lastShot = Time.time;
             }
         }
