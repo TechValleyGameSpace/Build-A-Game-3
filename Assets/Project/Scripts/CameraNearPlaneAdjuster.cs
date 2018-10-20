@@ -33,7 +33,7 @@ namespace Project
                     break;
                 case PlayerMove.Axis.XZ:
                     nearPlaneDistance = transform.position.y;
-                    invertDirection = nearPlaneDistance < 0;
+                    invertDirection = nearPlaneDistance > 0;
                     break;
                 case PlayerMove.Axis.YZ:
                     nearPlaneDistance = transform.position.x;

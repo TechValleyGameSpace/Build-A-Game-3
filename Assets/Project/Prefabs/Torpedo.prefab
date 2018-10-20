@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4275105994908990}
   - component: {fileID: 54743121198336988}
-  - component: {fileID: 75220469581811178}
   - component: {fileID: 114688163603855100}
   - component: {fileID: 108453918973116502}
   m_Layer: 10
@@ -163,17 +162,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!75 &75220469581811178
-ConstantForce:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1332767155896736}
-  m_Enabled: 1
-  m_Force: {x: 0, y: 0, z: 0}
-  m_RelativeForce: {x: 0, y: 0, z: 10}
-  m_Torque: {x: 0, y: 0, z: 0}
-  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!108 &108453918973116502
 Light:
   m_ObjectHideFlags: 1
@@ -222,7 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0b7417966b433469b2031b0fdf34f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyAfterSeconds: 10
+  destroyAfterSeconds: 2
+  speed: 5
 --- !u!136 &136204632032036456
 CapsuleCollider:
   m_ObjectHideFlags: 1

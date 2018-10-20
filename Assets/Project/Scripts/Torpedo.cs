@@ -9,13 +9,17 @@ namespace Project
     {
         [SerializeField]
         float destroyAfterSeconds = 10f;
+        [SerializeField]
+        float speed = 10f;
 
-        Coroutine delayDestroyCoroutine;
+        Rigidbody body = null;
+        Vector3 speedVector;
 
         public override void Start()
         {
             base.Start();
-            delayDestroyCoroutine = StartCoroutine(DelayDestroy());
+            body = GetComponent<Rigidbody>();
+            speedVector = new Vector3(0f, 0f, speed);
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -23,13 +27,16 @@ namespace Project
             if (collision.collider.CompareTag("Destructable") == true)
             {
                 Voxel voxel = collision.collider.GetComponent<Voxel>();
-                if(voxel != null)
+                if (voxel != null)
                 {
                     OmiyaGames.Global.PoolingManager.ReturnToPool(voxel);
-                    OmiyaGames.Global.PoolingManager.ReturnToPool(this);
-                    StopCoroutine(delayDestroyCoroutine);
                 }
             }
+        }
+
+        private void FixedUpdate()
+        {
+            body.AddRelativeForce(speedVector, ForceMode.VelocityChange);
         }
 
         IEnumerator DelayDestroy()

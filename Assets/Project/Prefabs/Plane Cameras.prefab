@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 20514873453042632}
   - component: {fileID: 124008348354852570}
   - component: {fileID: 114444048253494374}
+  - component: {fileID: 114803825371450970}
   m_Layer: 8
   m_Name: Camera Y-Z
   m_TagString: Untagged
@@ -59,6 +60,7 @@ GameObject:
   - component: {fileID: 20373447535147510}
   - component: {fileID: 124322201216407690}
   - component: {fileID: 114059754093431526}
+  - component: {fileID: 114727270558211722}
   m_Layer: 8
   m_Name: Camera X-Y
   m_TagString: Untagged
@@ -289,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae1d60af96f3324ebef559c56ace123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nearPlane: 4.44
+  nearPlane: 3.41
   perspective: 1
 --- !u!114 &114444048253494374
 MonoBehaviour:
@@ -302,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae1d60af96f3324ebef559c56ace123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nearPlane: 4.44
+  nearPlane: 3.35
   perspective: 2
 --- !u!114 &114563611383391678
 MonoBehaviour:
@@ -316,6 +318,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &114727270558211722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1528863908674582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6af5eaa8d821f4e93093fd37ee3484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderShadows: 1
+  requiresDepthTexture: 0
+  requiresColorTexture: 0
+  m_Version: 1
+--- !u!114 &114803825371450970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1303365973043926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6af5eaa8d821f4e93093fd37ee3484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderShadows: 1
+  requiresDepthTexture: 0
+  requiresColorTexture: 0
+  m_Version: 1
 --- !u!114 &114857519748889882
 MonoBehaviour:
   m_ObjectHideFlags: 1

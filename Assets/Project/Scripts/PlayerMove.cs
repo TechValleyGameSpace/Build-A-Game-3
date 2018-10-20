@@ -76,30 +76,34 @@ namespace Project
                     break;
             }
 
-            if (move.sqrMagnitude > 0.01f)
+            // Check the speed
+            float speed = move.magnitude;
+            if (speed > 0.1f)
             {
+                // Calculate the rotation
                 move.Normalize();
-                transform.forward = Vector3.Lerp(transform.forward, move, (Time.deltaTime * turnSmoothFactor));
-                controller.SetFloat(propellerSpeedField, move.magnitude);
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(move, Vector3.up), (Time.deltaTime * turnSmoothFactor));
+
+                // Recalculate move with acceleration
+                move.x *= moveForceAcceleration * Time.deltaTime;
+                move.y *= moveForceAcceleration * Time.deltaTime;
+                move.z *= moveForceAcceleration * Time.deltaTime;
+                body.AddForce(move, ForceMode.Acceleration);
+
+                // Animate the propeller
+                controller.SetFloat(propellerSpeedField, speed);
             }
             else
             {
                 controller.SetFloat(propellerSpeedField, 0f);
             }
-
-            // Recalculate move with acceleration
-            move.x *= moveForceAcceleration * Time.deltaTime;
-            move.y *= moveForceAcceleration * Time.deltaTime;
-            move.z *= moveForceAcceleration * Time.deltaTime;
-            body.AddForce(move, ForceMode.Acceleration);
         }
 
         private void Update()
         {
             if ((CrossPlatformInputManager.GetButton("Fire1") == true) && ((Time.time - lastShot) > cooldownDurationSeconds))
             {
-                // FIXME: calculate the rotations properly
-                Torpedo clone = Singleton.Get<PoolingManager>().GetInstance(projectilePrefab, transform.position, Quaternion.identity);
+                Torpedo clone = Singleton.Get<PoolingManager>().GetInstance(projectilePrefab, transform.position, transform.rotation);
                 lastShot = Time.time;
             }
         }
