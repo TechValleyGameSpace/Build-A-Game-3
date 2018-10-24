@@ -903,7 +903,7 @@ MonoBehaviour:
     cursorMode: 0
     revertTimeScale: 1
   levels:
-  - scenePath: Assets/Project/Scenes/Level 1.unity
+  - scenePath: Assets/Project/Scenes/Menus/BuildAGame.unity
     displayName: Level Button
     cursorMode: 0
     revertTimeScale: 1
