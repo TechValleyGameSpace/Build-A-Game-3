@@ -118,22 +118,28 @@ MonoBehaviour:
   - key: Game Title
     allTranslations:
     - languageIndex: 0
-      text: Template Unity Project
+      text: TVGS Build A Game
     - languageIndex: 1
-      text: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\u4E00\u25CF\u30E6\u30CB\u30C6\u30A3\u30FC\u25CF\u30D7\u30ED\u30B8\u30A7\u30AF\u30C8"
+      text: "TVGS\u30B2\u30FC\u30E0\u4F5C\u308D\u3046"
     - languageIndex: 2
-      text: Ethay Ecursiveray Ollhouseday
+      text: VGSTAY Uildbay Away Amegay
   - key: How To Play
     allTranslations:
     - languageIndex: 0
       text: '<b>Objective:</b>
 
-        [Insert objectives here...]
+        Not implemented. Have fun exploring!
 
 
         <b>Controls:</b>
 
-        [Insert controls here...]'
+        Click on the big darkened blocks on the left, bottom, or lower-left corner
+        to select the plane the submarine travels.  Then use the arrow keys to move
+        the submarine respective to that perspective.  You can swith the plane at
+        any time.
+
+
+        Press Space to shoot torpedos and dig through the blocky world.'
     - languageIndex: 1
       text: 
     - languageIndex: 2
