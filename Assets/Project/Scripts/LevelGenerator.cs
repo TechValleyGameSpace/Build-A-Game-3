@@ -19,10 +19,17 @@ namespace Project
         [Header("Initial Setup")]
         [SerializeField]
         Transform player;
-        [SerializeField]
-        Vector3Int initialPosition = new Vector3Int();
 
+        [Header("Collectable")]
+        [SerializeField]
+        [Range(0f, 0.5f)]
+        float collectableProbability = 0.1f;
+        [SerializeField]
+        Collectable[] allCollectables;
+
+        Vector3Int initialPosition = new Vector3Int();
         Dictionary<Vector3Int, Voxel> createdVoxels = null;
+        Dictionary<Vector3Int, Collectable> createdCollectables = null;
         List<Voxel> getVoxelCache = null;
         Vector3 playerPosition;
         Vector3Int currentPlayerPosition = Vector3Int.zero;
@@ -40,9 +47,25 @@ namespace Project
             }
         }
 
+        public Dictionary<Vector3Int, Collectable> CreatedCollectables
+        {
+            get
+            {
+                if (createdCollectables == null)
+                {
+                    createdCollectables = new Dictionary<Vector3Int, Collectable>((int)Mathf.Pow(radiusFromPlayer * 2, 3));
+                }
+                return createdCollectables;
+            }
+        }
+
         // Use this for initialization
         void Start()
         {
+            int topRange = int.MaxValue / 2;
+            initialPosition.x = Random.Range(-topRange, topRange);
+            initialPosition.y = Random.Range(-topRange, topRange);
+            initialPosition.z = Random.Range(-topRange, topRange);
             foreach (Vector3Int pos in SurroundingCoordinates(Vector3Int.zero))
             {
                 AddVoxel(pos);
@@ -136,6 +159,11 @@ namespace Project
 
         private Voxel AddVoxel(Vector3Int pos)
         {
+            if(pos.sqrMagnitude <= 4)
+            {
+                return null;
+            }
+
             // Calculate position
             Vector3 offsetCoordinate = pos - initialPosition;
             offsetCoordinate *= noiseCoordinate;
@@ -150,6 +178,17 @@ namespace Project
 
                 // Position the voxel
                 instance.transform.position = pos;
+            }
+
+            if(Random.value < collectableProbability)
+            {
+                // Grab an instance of a collectable
+                Collectable randomCollectablePrefab = allCollectables[Random.Range(0, allCollectables.Length)];
+                Collectable collectableInstance = Singleton.Get<PoolingManager>().GetInstance<Collectable>(randomCollectablePrefab);
+                CreatedCollectables.Add(pos, collectableInstance);
+
+                // Position the voxel
+                collectableInstance.transform.position = pos;
             }
             return instance;
         }
@@ -222,10 +261,18 @@ namespace Project
             foreach (Vector3Int nextCoordinate in planeDirection)
             {
                 // Remove voxels in the negative X-direction
-                if ((toAdd == false) && (CreatedVoxels.ContainsKey(nextCoordinate) == true))
+                if (toAdd == false)
                 {
-                    PoolingManager.ReturnToPool(CreatedVoxels[nextCoordinate]);
-                    CreatedVoxels.Remove(nextCoordinate);
+                    if (CreatedVoxels.ContainsKey(nextCoordinate) == true)
+                    {
+                        PoolingManager.ReturnToPool(CreatedVoxels[nextCoordinate]);
+                        CreatedVoxels.Remove(nextCoordinate);
+                    }
+                    if(CreatedCollectables.ContainsKey(nextCoordinate)== true)
+                    {
+                        PoolingManager.ReturnToPool(CreatedCollectables[nextCoordinate]);
+                        CreatedCollectables.Remove(nextCoordinate);
+                    }
                 }
                 else if (toAdd == true)
                 {

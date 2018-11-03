@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae1d60af96f3324ebef559c56ace123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nearPlane: 3.41
+  nearPlane: 3.85
   perspective: 1
 --- !u!114 &114444048253494374
 MonoBehaviour:
