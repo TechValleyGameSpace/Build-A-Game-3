@@ -38,6 +38,8 @@ namespace Project
         float turnSmoothFactor = 10f;
         [SerializeField]
         string propellerSpeedField = "Propeller Speed";
+        [SerializeField]
+        ParticleSystem jetParticles;
 
         Rigidbody body;
         Vector3 move;
@@ -78,6 +80,7 @@ namespace Project
 
             // Check the speed
             float speed = move.magnitude;
+            ParticleSystem.EmissionModule module = jetParticles.emission;
             if (speed > 0.1f)
             {
                 // Calculate the rotation
@@ -92,10 +95,12 @@ namespace Project
 
                 // Animate the propeller
                 controller.SetFloat(propellerSpeedField, speed);
+                module.enabled = true;
             }
             else
             {
                 controller.SetFloat(propellerSpeedField, 0f);
+                module.enabled = false;
             }
         }
 
