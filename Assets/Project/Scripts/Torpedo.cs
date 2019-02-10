@@ -52,6 +52,7 @@ namespace Project
         IEnumerator DelayDestroy(float seconds)
         {
             yield return new WaitForSeconds(seconds);
+            body.velocity = Vector3.zero;
             OmiyaGames.Global.PoolingManager.ReturnToPool(this);
         }
     }
