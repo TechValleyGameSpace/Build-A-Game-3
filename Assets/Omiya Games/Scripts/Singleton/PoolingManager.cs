@@ -70,6 +70,7 @@ namespace OmiyaGames.Global
         {
             if (script != null)
             {
+                script.AfterDeactivate(Singleton.Get<PoolingManager>());
                 ReturnToPool(script.gameObject);
             }
         }
