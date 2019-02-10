@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using OmiyaGames;
 using OmiyaGames.Global;
+using OmiyaGames.Audio;
 
 namespace Project
 {
@@ -32,6 +33,8 @@ namespace Project
         Torpedo projectilePrefab;
         [SerializeField]
         float cooldownDurationSeconds = 0.5f;
+        [SerializeField]
+        Transform spawnPoint;
 
         [Header("Animations")]
         [SerializeField]
@@ -41,16 +44,44 @@ namespace Project
         [SerializeField]
         ParticleSystem jetParticles;
 
+        [Header("Sound Effects")]
+        [SerializeField]
+        OmiyaGames.Audio.SoundEffect collectibleSound;
+
         Rigidbody body;
         Vector3 move;
         Animator controller;
         float lastShot = 0f;
+
+        private static readonly HashSet<Collider> playerCollider = new HashSet<Collider>();
+        private static PlayerMove instance;
+
+        public static PlayerMove GetPlayer(Collider check)
+        {
+            if (playerCollider.Contains(check) == true)
+            {
+                return instance;
+            }
+            return null;
+        }
+
+        public SoundEffect CollectibleSound
+        {
+            get => collectibleSound;
+        }
 
         // Use this for initialization
         void Start()
         {
             body = GetComponent<Rigidbody>();
             controller = GetComponent<Animator>();
+            Collider[] all = GetComponentsInChildren<Collider>();
+            playerCollider.Clear();
+            foreach (Collider col in all)
+            {
+                playerCollider.Add(col);
+            }
+            instance = this;
         }
 
         // Update is called once per frame
@@ -108,7 +139,9 @@ namespace Project
         {
             if ((CrossPlatformInputManager.GetButton("Fire1") == true) && ((Time.time - lastShot) > cooldownDurationSeconds))
             {
-                Torpedo clone = Singleton.Get<PoolingManager>().GetInstance(projectilePrefab, transform.position, transform.rotation);
+                Torpedo clone = Singleton.Get<PoolingManager>().GetInstance(projectilePrefab, spawnPoint.position, spawnPoint.rotation);
+                //clone.transform.position = transform.position;
+                //clone.transform.rotation = transform.rotation;
                 lastShot = Time.time;
             }
         }

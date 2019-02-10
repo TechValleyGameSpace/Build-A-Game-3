@@ -10,10 +10,13 @@ namespace Project
     {
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Yay 1!");
             if (other.CompareTag("Player") == true)
             {
-                Debug.Log("Yay 2!");
+                PlayerMove player = PlayerMove.GetPlayer(other);
+                if(player != null)
+                {
+                    player.CollectibleSound.Play();
+                }
                 PoolingManager.ReturnToPool(this);
             }
         }

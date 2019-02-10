@@ -10,11 +10,13 @@ namespace Project
     {
         [SerializeField]
         ParticleSystem particles;
+        [SerializeField]
+        OmiyaGames.Audio.SoundEffect sound;
 
         public override void Start()
         {
             base.Start();
-            if(particles == null)
+            if (particles == null)
             {
                 particles = GetComponent<ParticleSystem>();
             }
@@ -22,6 +24,10 @@ namespace Project
             {
                 particles.Play();
                 StartCoroutine(DisableAfter(particles.main.duration));
+            }
+            if (sound != null)
+            {
+                sound.Play();
             }
         }
 

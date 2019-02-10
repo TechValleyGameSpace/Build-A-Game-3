@@ -11,6 +11,10 @@ namespace Project
         float destroyAfterSeconds = 10f;
         [SerializeField]
         float speed = 10f;
+        [SerializeField]
+        OmiyaGames.Audio.SoundEffect sound;
+        [SerializeField]
+        ParticleSystem particles;
 
         Rigidbody body = null;
         Vector3 speedVector;
@@ -20,6 +24,12 @@ namespace Project
             base.Start();
             body = GetComponent<Rigidbody>();
             speedVector = new Vector3(0f, 0f, speed);
+            sound.Play();
+            particles.Stop();
+            particles.Clear();
+            particles.Play();
+
+            StartCoroutine(DelayDestroy(destroyAfterSeconds));
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -29,7 +39,7 @@ namespace Project
                 Voxel voxel = collision.collider.GetComponent<Voxel>();
                 if (voxel != null)
                 {
-                    OmiyaGames.Global.PoolingManager.ReturnToPool(voxel);
+                    voxel.ExplodeVoxel();
                 }
             }
         }
@@ -39,9 +49,9 @@ namespace Project
             body.AddRelativeForce(speedVector, ForceMode.VelocityChange);
         }
 
-        IEnumerator DelayDestroy()
+        IEnumerator DelayDestroy(float seconds)
         {
-            yield return new WaitForSeconds(destroyAfterSeconds);
+            yield return new WaitForSeconds(seconds);
             OmiyaGames.Global.PoolingManager.ReturnToPool(this);
         }
     }
