@@ -8,6 +8,8 @@ namespace Project
 {
     public class LevelGenerator : MonoBehaviour
     {
+        const int StartRangeLimit = int.MaxValue / 10;
+
         [SerializeField]
         Voxel[] allVoxels;
         [SerializeField]
@@ -64,10 +66,9 @@ namespace Project
         // Use this for initialization
         void Start()
         {
-            int topRange = int.MaxValue / 2;
-            initialPosition.x = Random.Range(-topRange, topRange);
-            initialPosition.y = Random.Range(-topRange, topRange);
-            initialPosition.z = Random.Range(-topRange, topRange);
+            initialPosition.x = Random.Range(-StartRangeLimit, StartRangeLimit);
+            initialPosition.y = Random.Range(-StartRangeLimit, StartRangeLimit);
+            initialPosition.z = Random.Range(-StartRangeLimit, StartRangeLimit);
             foreach (Vector3Int pos in SurroundingCoordinates(Vector3Int.zero))
             {
                 AddVoxel(pos);
