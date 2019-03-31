@@ -35,7 +35,7 @@ namespace Project
         
         [Header("Collectable")]
         [SerializeField]
-        [Range(0f, 0.5f)]
+        [Range(0f, 0.01f)]
         float collectableProbability = 0.1f;
         [SerializeField]
         Collectable[] allCollectables;

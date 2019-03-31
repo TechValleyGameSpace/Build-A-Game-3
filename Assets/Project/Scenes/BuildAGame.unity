@@ -1572,6 +1572,11 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8656269585640948101, guid: 6482dc26a6defa94ca44c6e789ab325d,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.7607843
+      objectReference: {fileID: 0}
     - target: {fileID: 5098026341843629170, guid: 6482dc26a6defa94ca44c6e789ab325d,
         type: 3}
       propertyPath: m_SizeDelta.x

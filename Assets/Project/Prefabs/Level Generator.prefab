@@ -113,7 +113,7 @@ MonoBehaviour:
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
   colorNoiseCoordinate: 0.01
-  collectableProbability: 0.01
+  collectableProbability: 0.0015
   allCollectables:
   - {fileID: 114079442782948296, guid: 1fde4f461c6db13418991136e2ae4da5, type: 3}
 --- !u!95 &1028386234341535738
