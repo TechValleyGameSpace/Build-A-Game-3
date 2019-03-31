@@ -1,21 +1,11 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1735403872200432}
-  m_IsPrefabAsset: 1
 --- !u!1 &1735403872200432
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4708189790281734}
@@ -29,11 +19,12 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4708189790281734
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735403872200432}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -42,9 +33,10 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114465497232616490
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1735403872200432}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -52,8 +44,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allVoxels:
-  - {fileID: 114086692014772228, guid: 2bc76f91aad825d468877957f1b84371, type: 2}
+  - {fileID: 114086692014772228, guid: 151323042b0f42d469ca4b05f9307f73, type: 3}
+  - {fileID: 114086692014772228, guid: 2c8f3d70c23166649ba17152caad57fa, type: 3}
+  - {fileID: 114086692014772228, guid: 2bc76f91aad825d468877957f1b84371, type: 3}
   radiusFromPlayer: 10
-  noiseCoordinate: 0.1
+  noiseCoordinate: 0.05
   player: {fileID: 0}
-  initialPosition: {x: 0, y: 0, z: 0}
+  collectableProbability: 0.01
+  allCollectables:
+  - {fileID: 114079442782948296, guid: 1fde4f461c6db13418991136e2ae4da5, type: 3}
