@@ -24,6 +24,15 @@ namespace Project
         [SerializeField]
         StoryHistory history;
 
+        [Header("Initial Setup")]
+        [SerializeField]
+        Gradient upperVoxelColors;
+        [SerializeField]
+        Gradient lowerVoxelColors;
+        [SerializeField]
+        [Range(0.01f, 0.5f)]
+        float colorNoiseCoordinate = 1f;
+        
         [Header("Collectable")]
         [SerializeField]
         [Range(0f, 0.5f)]
@@ -32,6 +41,7 @@ namespace Project
         Collectable[] allCollectables;
 
         Vector3Int initialPosition = new Vector3Int();
+        Vector3Int colorPosition = new Vector3Int();
         Dictionary<Vector3Int, Voxel> createdVoxels = null;
         Dictionary<Vector3Int, Collectable> createdCollectables = null;
         List<Voxel> getVoxelCache = null;
@@ -69,6 +79,9 @@ namespace Project
             initialPosition.x = Random.Range(-StartRangeLimit, StartRangeLimit);
             initialPosition.y = Random.Range(-StartRangeLimit, StartRangeLimit);
             initialPosition.z = Random.Range(-StartRangeLimit, StartRangeLimit);
+            colorPosition.x = Random.Range(-StartRangeLimit, StartRangeLimit);
+            colorPosition.y = Random.Range(-StartRangeLimit, StartRangeLimit);
+            colorPosition.z = Random.Range(-StartRangeLimit, StartRangeLimit);
             foreach (Vector3Int pos in SurroundingCoordinates(Vector3Int.zero))
             {
                 AddVoxel(pos);
@@ -172,11 +185,19 @@ namespace Project
             offsetCoordinate *= noiseCoordinate;
 
             // Grab a voxel
-            Voxel instance = null, prefab = GetVoxel(Perlin.Noise(offsetCoordinate));
+            float perlinNoise = Perlin.Noise(offsetCoordinate);
+            Voxel instance = null, prefab = GetVoxel(perlinNoise);
             if (prefab != null)
             {
+                // Calculate color noise
+                offsetCoordinate = pos - colorPosition;
+                offsetCoordinate *= colorNoiseCoordinate;
+                perlinNoise = Perlin.Noise(offsetCoordinate);
+                perlinNoise = Mathf.Repeat(perlinNoise, 1);
+
                 // Grab an instance of the voxel
                 instance = Singleton.Get<PoolingManager>().GetInstance<Voxel>(prefab);
+                instance.VoxelColor = Color.Lerp(lowerVoxelColors.Evaluate(perlinNoise), upperVoxelColors.Evaluate(perlinNoise), Random.value);
                 CreatedVoxels.Add(pos, instance);
 
                 // Position the voxel
@@ -289,34 +310,36 @@ namespace Project
 
         public Voxel GetVoxel(float value)
         {
-            // Setup the cache list
-            if (getVoxelCache == null)
-            {
-                getVoxelCache = new List<Voxel>(allVoxels.Length);
-            }
-            getVoxelCache.Clear();
-
-            // Go through all voxels
-            foreach (Voxel consider in allVoxels)
-            {
-                // Check if value is in-between
-                if ((value > consider.Range.x) && (value < consider.Range.y))
-                {
-                    getVoxelCache.Add(consider);
-                }
-            }
-
             // Return a random voxel
-            Voxel returnVoxel = null;
-            if (getVoxelCache.Count > 0)
-            {
-                returnVoxel = getVoxelCache[0];
-                if (getVoxelCache.Count > 1)
-                {
-                    returnVoxel = getVoxelCache[Random.Range(0, getVoxelCache.Count)];
-                }
-            }
-            return returnVoxel;
+            return allVoxels[Random.Range(0, allVoxels.Length)];
+            //// Setup the cache list
+            //if (getVoxelCache == null)
+            //{
+            //    getVoxelCache = new List<Voxel>(allVoxels.Length);
+            //}
+            //getVoxelCache.Clear();
+
+            //// Go through all voxels
+            //foreach (Voxel consider in allVoxels)
+            //{
+            //    // Check if value is in-between
+            //    if ((value > consider.Range.x) && (value < consider.Range.y))
+            //    {
+            //        getVoxelCache.Add(consider);
+            //    }
+            //}
+
+            //// Return a random voxel
+            //Voxel returnVoxel = null;
+            //if (getVoxelCache.Count > 0)
+            //{
+            //    returnVoxel = getVoxelCache[0];
+            //    if (getVoxelCache.Count > 1)
+            //    {
+            //        returnVoxel = getVoxelCache[Random.Range(0, getVoxelCache.Count)];
+            //    }
+            //}
+            //return returnVoxel;
         }
     }
 }

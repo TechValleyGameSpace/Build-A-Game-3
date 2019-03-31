@@ -125,6 +125,7 @@ MonoBehaviour:
   range: {x: -0.6, y: 0.5}
   dustParticles: {fileID: 8808604902522498156, guid: acb0ee74817079e4daeff995446fc32b,
     type: 3}
+  changeColor: {fileID: 23676644090751714}
 --- !u!65 &65153291596500688
 BoxCollider:
   m_ObjectHideFlags: 0

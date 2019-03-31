@@ -13,6 +13,8 @@ namespace Project
         Vector2 range;
         [SerializeField]
         PooledObject dustParticles;
+        [SerializeField]
+        Renderer changeColor;
 
         public Vector3Int Coordinates
         {
@@ -26,6 +28,11 @@ namespace Project
             {
                 return range;
             }
+        }
+
+        public Color VoxelColor
+        {
+            set => changeColor.material.color = value;
         }
 
         public void ExplodeVoxel()

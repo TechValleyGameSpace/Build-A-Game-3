@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d70b4c14bea8b8946875170b47519cfb, type: 2}
+  - {fileID: 2100000, guid: 14ae6de567178134ba36139c00c25a96, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 114086692014772228}
   - component: {fileID: 65153291596500688}
   m_Layer: 0
-  m_Name: Voxel-2
+  m_Name: Voxel-4
   m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eab417dbfabc744db0577fd2e1d078a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: {x: -0.4, y: 0.4}
+  range: {x: -0.2, y: 0.2}
   dustParticles: {fileID: 8808604902522498156, guid: acb0ee74817079e4daeff995446fc32b,
     type: 3}
   changeColor: {fileID: 23676644090751714}

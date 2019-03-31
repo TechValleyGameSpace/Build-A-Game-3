@@ -25,7 +25,6 @@ namespace Project
                 }
                 if(Logs != null)
                 {
-                    Debug.Log(Logs.LatestLog);
                     Logs.GetNextLog();
                 }
                 PoolingManager.ReturnToPool(this);

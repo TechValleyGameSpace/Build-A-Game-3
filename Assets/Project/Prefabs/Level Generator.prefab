@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allVoxels:
+  - {fileID: 114086692014772228, guid: b95b0a51bb34cee4eb81569edcd2b11e, type: 3}
   - {fileID: 114086692014772228, guid: 151323042b0f42d469ca4b05f9307f73, type: 3}
   - {fileID: 114086692014772228, guid: 2c8f3d70c23166649ba17152caad57fa, type: 3}
   - {fileID: 114086692014772228, guid: 2bc76f91aad825d468877957f1b84371, type: 3}
@@ -53,6 +54,65 @@ MonoBehaviour:
   noiseCoordinate: 0.05
   player: {fileID: 0}
   history: {fileID: 7504806770949804143}
+  upperVoxelColors:
+    serializedVersion: 2
+    key0: {r: 0.8832879, g: 1, b: 0, a: 1}
+    key1: {r: 1, g: 0.62109727, b: 0.15686274, a: 1}
+    key2: {r: 1, g: 0.33490568, b: 0.36098772, a: 1}
+    key3: {r: 1, g: 0.21568626, b: 0.6734185, a: 0}
+    key4: {r: 0.6767099, g: 0.41960788, b: 1, a: 0}
+    key5: {r: 0.5803922, g: 0.6691577, b: 1, a: 0}
+    key6: {r: 0.41709682, g: 0.9716981, b: 0.7249106, a: 0}
+    key7: {r: 0.3465832, g: 0.9622642, b: 0.19517623, a: 0}
+    ctime0: 0
+    ctime1: 6746
+    ctime2: 14264
+    ctime3: 25058
+    ctime4: 35273
+    ctime5: 43754
+    ctime6: 51464
+    ctime7: 62066
+    atime0: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 2
+  lowerVoxelColors:
+    serializedVersion: 2
+    key0: {r: 0.40083334, g: 0.455, b: 0, a: 1}
+    key1: {r: 0.706, g: 0.38747907, b: 0, a: 1}
+    key2: {r: 0.76199996, g: 0, b: 0.031376716, a: 0}
+    key3: {r: 0.748, g: 0, b: 0.43758005, a: 0}
+    key4: {r: 0.23471165, g: 0, b: 0.699, a: 0}
+    key5: {r: 0, g: 0.16078499, b: 0.748, a: 0}
+    key6: {r: 0.020285998, g: 0.48299998, b: 0.2777114, a: 0}
+    key7: {r: 0.21364458, g: 0.524, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 6746
+    ctime2: 14264
+    ctime3: 25058
+    ctime4: 35273
+    ctime5: 43754
+    ctime6: 51464
+    ctime7: 62066
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 8
+    m_NumAlphaKeys: 2
+  colorNoiseCoordinate: 0.01
   collectableProbability: 0.01
   allCollectables:
   - {fileID: 114079442782948296, guid: 1fde4f461c6db13418991136e2ae4da5, type: 3}
@@ -87,3 +147,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96315a39771e77246830349499975771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextLogTrigger: Next Log
+  randomFloatField: Random
