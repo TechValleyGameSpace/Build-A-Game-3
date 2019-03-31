@@ -19,6 +19,8 @@ namespace Project
         [Header("Initial Setup")]
         [SerializeField]
         Transform player;
+        [SerializeField]
+        StoryHistory history;
 
         [Header("Collectable")]
         [SerializeField]
@@ -185,6 +187,7 @@ namespace Project
                 // Grab an instance of a collectable
                 Collectable randomCollectablePrefab = allCollectables[Random.Range(0, allCollectables.Length)];
                 Collectable collectableInstance = Singleton.Get<PoolingManager>().GetInstance<Collectable>(randomCollectablePrefab);
+                collectableInstance.Logs = history;
                 CreatedCollectables.Add(pos, collectableInstance);
 
                 // Position the voxel
