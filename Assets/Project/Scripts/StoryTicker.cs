@@ -23,6 +23,7 @@ namespace Project
         private RectTransform movingChild;
 
         private bool isScrolling = false;
+        private bool isGameFinished = false;
         private Vector2 initialChildPosition;
         private Vector2 currentChildPosition;
 
@@ -33,12 +34,12 @@ namespace Project
 
         private void Update()
         {
-            if(currentIndex < history.Count)
+            if (currentIndex < history.Count)
             {
-                if(isScrolling == true)
+                if (isScrolling == true)
                 {
                     // FIXME: check if the text is done scrolling
-                    if((movingChild.localPosition.x + movingChild.rect.width) < parent.rect.xMin)
+                    if ((movingChild.localPosition.x + movingChild.rect.width) < parent.rect.xMin)
                     {
                         // Reset the position of the child
                         movingChild.localPosition = initialChildPosition;
@@ -61,6 +62,11 @@ namespace Project
                     label.SetText(history[currentIndex].Value);
                     isScrolling = true;
                 }
+            }
+            else if((isGameFinished == false) && (history.Count > 0) && (history[history.Count - 1].Key.IsEnd == true))
+            {
+                OmiyaGames.Singleton.Get<OmiyaGames.Scenes.SceneTransitionManager>().LoadCredits();
+                isGameFinished = true;
             }
         }
     }

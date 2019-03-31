@@ -10,10 +10,17 @@ namespace Project
         public const string PrependBeforeLog = "Log {0:00}: ";
 
         [SerializeField]
+        private bool isEnd = false;
+        [SerializeField]
         [Multiline]
         private string log;
 
         private readonly StringBuilder builder = new StringBuilder();
+
+        public bool IsEnd
+        {
+            get => isEnd;
+        }
 
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
