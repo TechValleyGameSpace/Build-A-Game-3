@@ -1,19 +1,19 @@
 Landed on Enceladus, one of Saturn's moons. Beginning research on life...
 
-???
+While wading through the waters, I was reminded of the torpedo launcher. Created by TVGS Corporation, the torpedo themselves are designed to penetrate through rocks and ice. Truly a deadly weapon.
 
-???
+The torpedos are propelled by magnetic forces, which makes the launcher a rail gun. It was only the past century or so when innovations to the rail-gun technology made it compact enough to be installed in this submarine.
 
-???
+I marvel at the submarine capabilities to insulate us from the cold and pressure. It, too, was built from years and years of research, putting together by the latest graphene and boron technology. Without it, this mission wouldn't be possible.
 
-???
+The auto-pilot computer makes the navigation safe and simple. The latest quantum computing has made it extraordinarly easy to calculate all possibilities, and taking the most optimal path. That said, sometimes we have difficulties catching up with its directions.
 
-???
+The submarine has two LIDAR sensors, and eight cameras installed. With their extraordinary resolution, it makes mapping out what the surroundings of our submarine looks like crisp and clear. The sensors makes it possible for crew members to don a VR headset and experience what it's like to swim in their surroundings.
 
-???
+The developers of the navigation system went a bit overboard, and created some hyper-realistic. It sometimes leaves the crew members going through the VR simulation stay immersed for hours. When asked one of the crew member who made the system how they created something so realistic, they said they used stuff like Vulkan and Path Tracing.
 
-???
+When asking one of the crew members, who helped develop the navigation system, one day how they made it, they gave me a shrug. Said they simply taught the neural network algorithm to learn from simulations of this satellite. I guess there are things we made that even we don't know how they work these days.
 
-???
+One of the crew members had an accident, and needed immediate medical attention. Fortunately, it turns out we had a patch of stem-cell-aided bandages available to us. After a quick a work of identifying the body part, it took only a few days for the stem cells to become copies of the patient's cells, and quickly integrate and repair the injured location.
 
 Mission investigating Enceladus ends. Initiating sequence back to home planet, Mars...
