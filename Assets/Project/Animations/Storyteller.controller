@@ -14,13 +14,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Random
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -145,7 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 1
-  log: Ending 1
+  log: Mission investigating Enceladus ends. Initiating sequence back to home planet,
+    Mars...
 --- !u!114 &114252205780136432
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -397,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Begin!
+  log: Landed on Enceladus, one of Saturn's moons. Beginning research on life...
 --- !u!114 &114744956922847618
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2385,30 +2386,30 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 1107607608400270360}
-    second:
-    - {fileID: 1109451000963792918}
   - first: {fileID: 1107283594932453518}
     second:
     - {fileID: 1109163491914716094}
-  - first: {fileID: 1107787512953029446}
-    second:
-    - {fileID: 1109898950725775784}
   - first: {fileID: 1107501628236456848}
     second:
     - {fileID: 1109230551854856234}
+  - first: {fileID: 1107523314678946492}
+    second:
+    - {fileID: 1109738138674958032}
   - first: {fileID: 1107543362428582232}
     second:
     - {fileID: 1109463011128966876}
   - first: {fileID: 1107561764945558606}
     second:
     - {fileID: 1109422223372191220}
+  - first: {fileID: 1107607608400270360}
+    second:
+    - {fileID: 1109451000963792918}
   - first: {fileID: 1107635788465739504}
     second:
     - {fileID: 1109937273171698592}
-  - first: {fileID: 1107523314678946492}
+  - first: {fileID: 1107787512953029446}
     second:
-    - {fileID: 1109738138674958032}
+    - {fileID: 1109898950725775784}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
