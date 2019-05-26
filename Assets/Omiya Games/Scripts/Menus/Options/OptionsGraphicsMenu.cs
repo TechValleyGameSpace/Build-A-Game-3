@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace OmiyaGames.Menu
+namespace OmiyaGames.Menus
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="OptionsGraphicsMenu.cs" company="Omiya Games">
@@ -105,9 +105,9 @@ namespace OmiyaGames.Menu
         [SerializeField]
         ToggleSet bobbingCameraControls;
         [SerializeField]
-        ToggleSet motionBlursControls;
-        [SerializeField]
         ToggleSet screenFlashesControls;
+        [SerializeField]
+        ToggleSet motionBlursControls;
         [SerializeField]
         ToggleSet bloomControls;
         #endregion

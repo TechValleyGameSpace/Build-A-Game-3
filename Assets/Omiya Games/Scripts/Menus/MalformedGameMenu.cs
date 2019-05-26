@@ -5,7 +5,7 @@ using System.Collections;
 using OmiyaGames.Web;
 using OmiyaGames.Translations;
 
-namespace OmiyaGames.Menu
+namespace OmiyaGames.Menus
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="MalformedGameMenu.cs" company="Omiya Games">
@@ -138,6 +138,12 @@ namespace OmiyaGames.Menu
             private set;
         } = Reason.None;
 
+        public bool IsUserAcceptingRisk
+        {
+            get;
+            private set;
+        } = false;
+
         WebLocationChecker WebChecker
         {
             get
@@ -223,6 +229,12 @@ namespace OmiyaGames.Menu
             {
                 Application.OpenURL(Singleton.Instance.WebsiteLink);
             }
+        }
+
+        public void OnAcceptClicked()
+        {
+            IsUserAcceptingRisk = true;
+            Hide();
         }
 
         IEnumerator VerifyBuild()

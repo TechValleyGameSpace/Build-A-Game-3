@@ -37,7 +37,7 @@ namespace OmiyaGames.UI.Translations
     /// <summary>
     /// Creates a window that imports CSV files.
     /// </summary>
-    public partial class ImportCsvPopUp : EditorWindow
+    public class ImportCsvPopUp : EditorWindow
     {
         public enum ConflictResolution
         {
@@ -257,7 +257,7 @@ namespace OmiyaGames.UI.Translations
             // Draw the browse button
             if (GUILayout.Button("Browse...", BrowseButtonFont, BrowseButtonHeight) == true)
             {
-                string newFileName = UnityEditor.EditorUtility.OpenFilePanelWithFilters("Import CSV File", "Assets/", CsvFileFilter);
+                string newFileName = EditorUtility.OpenFilePanelWithFilters("Import CSV File", "Assets/", CsvFileFilter);
                 if (string.IsNullOrEmpty(newFileName) == false)
                 {
                     CsvFileName = newFileName;

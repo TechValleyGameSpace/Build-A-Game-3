@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using OmiyaGames.Translations;
 
-namespace OmiyaGames.Menu
+namespace OmiyaGames.Menus
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="LevelCompleteMenu.cs" company="Omiya Games">
@@ -66,7 +66,7 @@ namespace OmiyaGames.Menu
             Manager.SetLabelTextToReturnToMenu(mReturnToMenuLabel);
 
             // Check if we need to disable the next level button
-            if ((defaultButton != null) && (SceneChanger.NextScene == null))
+            if ((defaultButton != null) && (SceneChanger.UpcomingScene == null))
             {
                 defaultButton.interactable = false;
             }

@@ -2,7 +2,7 @@
 using OmiyaGames;
 using OmiyaGames.Audio;
 
-namespace Project
+namespace OmiyaGames
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="BackgroundMusicChanger.cs" company="Omiya Games">
@@ -37,6 +37,8 @@ namespace Project
     {
         [SerializeField]
         AudioClip backgroundMusic;
+        [SerializeField]
+        bool randomizeStartPoint = false;
 
         // Use this for initialization
         void Start()
@@ -44,6 +46,10 @@ namespace Project
             if (backgroundMusic != null)
             {
                 Singleton.Get<BackgroundMusic>().CurrentMusic = backgroundMusic;
+                if(randomizeStartPoint)
+                {
+                    Singleton.Get<BackgroundMusic>().Audio.time = Random.Range(0f, backgroundMusic.length);
+                }
             }
         }
     }

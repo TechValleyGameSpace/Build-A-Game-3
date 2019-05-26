@@ -3,6 +3,8 @@ using UnityEditorInternal;
 using UnityEngine;
 using System.IO;
 using OmiyaGames.Translations;
+using System.Collections.Generic;
+using System;
 
 namespace OmiyaGames.UI.Translations
 {
@@ -34,25 +36,25 @@ namespace OmiyaGames.UI.Translations
     /// <date>9/12/2018</date>
     ///-----------------------------------------------------------------------
     /// <summary>
-    /// An editor to allow editing <code>SupportedLanguages</code> scripts.
+    /// An editor to allow editing <see cref="SupportedLanguages"/> scripts.
     /// </summary>
     /// <seealso cref="SupportedLanguages"/>
     [CustomEditor(typeof(SupportedLanguages), true)]
     public class SupportedLanguagesEditor : Editor
     {
         public const string DefaultFileName = "New Supported Languages" + Utility.FileExtensionScriptableObject;
-        const float VerticalMargin = 2;
 
         // Member variables
         SerializedProperty previewLanguageInIndex;
         SerializedProperty supportedLanguages;
         ReorderableList supportedLanguagesList;
+        readonly Dictionary<SerializedProperty, ReorderableList> fonts = new Dictionary<SerializedProperty, ReorderableList>();
 
-        [MenuItem("Tools/Omiya Games/Create Supported Languages...", priority = 801)]
+        [MenuItem("Assets/Create/Omiya Games/Supported Languages", priority = 201)]
         private static void CreateSupportedLanguages()
         {
             // Setup asset
-            SupportedLanguages newAsset = ScriptableObject.CreateInstance<SupportedLanguages>();
+            SupportedLanguages newAsset = CreateInstance<SupportedLanguages>();
 
             // Setup path to file
             string folderName = AssetUtility.GetSelectedFolder();
@@ -77,7 +79,7 @@ namespace OmiyaGames.UI.Translations
         public static int DrawSupportedLanguages(Rect rect, string label, int index, SupportedLanguages target, bool includeAddLanguage = false)
         {
             int returnIndex = EditorGUI.Popup(rect, label, index, GetAllLanguageNames(target, includeAddLanguage));
-            if(returnIndex >= target.Count)
+            if (returnIndex >= target.Count)
             {
                 returnIndex = index;
                 Selection.activeObject = target;
@@ -134,10 +136,54 @@ namespace OmiyaGames.UI.Translations
             supportedLanguagesList = new ReorderableList(serializedObject, supportedLanguages, true, true, true, true);
             supportedLanguagesList.drawHeaderCallback = DrawSupportedLanguagesListHeader;
             supportedLanguagesList.drawElementCallback = DrawSupportedLangaugesListElement;
-            supportedLanguagesList.elementHeight = EditorUtility.GetHeight(null, 2, VerticalMargin) + VerticalMargin;
+            supportedLanguagesList.elementHeightCallback = CalculateSupportedLangaugesListElementHeight;
+            supportedLanguagesList.onAddCallback = AddSupportedLangaugesListElement;
+            supportedLanguagesList.onRemoveCallback = RemoveSupportedLangaugesListElement;
+
+            // Clean everything up
+            fonts.Clear();
         }
 
         #region Helper Methods
+        private void AddSupportedLangaugesListElement(ReorderableList list)
+        {
+            // Add an element to the list
+            ReorderableList.defaultBehaviours.DoAddButton(list);
+
+            // Setup this list
+            GetFontsList(list.serializedProperty.GetArrayElementAtIndex(list.count - 1).FindPropertyRelative("fonts"));
+        }
+
+        private ReorderableList GetFontsList(SerializedProperty property)
+        {
+            // Attempt to retrieve the list
+            ReorderableList fontsList = null;
+            if (fonts.TryGetValue(property, out fontsList) == false)
+            {
+                // If none is found, create a new one
+                fontsList = new ReorderableList(serializedObject, property, true, true, true, true);
+                fontsList.drawHeaderCallback = DrawFontsListHeader;
+                fontsList.drawElementCallback = (Rect rect, int index, bool isActive, bool isFocused) =>
+                {
+                    DrawFontsListElement(property.GetArrayElementAtIndex(index), rect);
+                };
+                fontsList.elementHeight = EditorUiUtility.SingleLineHeight(EditorUiUtility.VerticalMargin);
+                fonts.Add(property, fontsList);
+            }
+            return fontsList;
+        }
+
+        private void RemoveSupportedLangaugesListElement(ReorderableList list)
+        {
+            // Remove the reorderable list
+            SerializedProperty property = list.serializedProperty.GetArrayElementAtIndex(list.index);
+            if (fonts.ContainsKey(property) == true)
+            {
+                fonts.Remove(property);
+            }
+            ReorderableList.defaultBehaviours.DoRemoveButton(list);
+        }
+
         void DrawSupportedLanguagesListHeader(Rect rect)
         {
             EditorGUI.LabelField(rect, "Supported Languages", EditorStyles.boldLabel);
@@ -149,7 +195,7 @@ namespace OmiyaGames.UI.Translations
             SerializedProperty element = supportedLanguagesList.serializedProperty.GetArrayElementAtIndex(index);
 
             // Adjust rect to the first line
-            rect.y += VerticalMargin;
+            rect.y += EditorUiUtility.VerticalMargin;
             rect.height = EditorGUIUtility.singleLineHeight;
 
             // Display language name
@@ -157,29 +203,47 @@ namespace OmiyaGames.UI.Translations
             EditorGUI.PropertyField(rect, property);
 
             // Adjust rect to the second line
-            rect.y += VerticalMargin;
+            rect.y += EditorUiUtility.VerticalMargin;
             rect.y += rect.height;
-            rect.width /= 2f;
+
+            // Expand the left side of the indent
+            rect.x -= EditorUiUtility.IndentSpace;
+            rect.width += EditorUiUtility.IndentSpace;
 
             // Draw checkbox
             property = element.FindPropertyRelative("isSystemDefault");
-            property.boolValue = EditorGUI.Toggle(rect, "Map To System Language", property.boolValue);
-            if (property.boolValue == true)
-            {
-                // Adjust rect to the second line
-                rect.x += rect.width;
+            DrawSystemDefaultPopUp(ref rect, element, ref property);
 
-                // Draw enum
-                property = element.FindPropertyRelative("mapTo");
-                System.Enum selectedLanguage= EditorGUI.EnumPopup(rect, (SystemLanguage)property.enumValueIndex);
-                property.enumValueIndex = System.Convert.ToInt32(selectedLanguage);
-            }
+            // Adjust rect to the last line
+            rect.y += EditorUiUtility.VerticalMargin;
+            rect.y += rect.height;
+
+            // Draw fonts
+            property = element.FindPropertyRelative("fonts");
+            DrawFontsList(rect, property);
+        }
+
+        private float CalculateSupportedLangaugesListElementHeight(int index)
+        {
+            // Grab the relevant element
+            SerializedProperty element = supportedLanguagesList.serializedProperty.GetArrayElementAtIndex(index);
+
+            // Calculate base height
+            float returnHeight = EditorUiUtility.GetHeight(null, 2, EditorUiUtility.VerticalMargin) + EditorUiUtility.VerticalMargin;
+
+            // Grab the relevant list
+            ReorderableList list = GetFontsList(element.FindPropertyRelative("fonts"));
+
+            // Calculate list height
+            returnHeight += list.GetHeight();
+            returnHeight += EditorUiUtility.VerticalMargin;
+            return returnHeight;
         }
 
         static string[] GetAllLanguageNames(SupportedLanguages target, bool includeAddLanguage)
         {
             string[] returnNames;
-            if(includeAddLanguage == true)
+            if (includeAddLanguage == true)
             {
                 returnNames = new string[target.NumberOfLanguages + 1];
             }
@@ -196,6 +260,54 @@ namespace OmiyaGames.UI.Translations
                 returnNames[target.NumberOfLanguages] = "Add Language...";
             }
             return returnNames;
+        }
+
+        private void DrawFontsList(Rect rect, SerializedProperty property)
+        {
+            // Create a font list
+            ReorderableList fontList = GetFontsList(property);
+
+            // Draw fonts
+            rect.height = fontList.GetHeight();
+            fontList.DoList(rect);
+        }
+
+        private static void DrawSystemDefaultPopUp(ref Rect rect, SerializedProperty element, ref SerializedProperty property)
+        {
+            float originalX = rect.x;
+            float originalWidth = rect.width;
+
+            rect.width /= 2f;
+
+            property.boolValue = EditorGUI.Toggle(rect, "Map To System Language", property.boolValue);
+            if (property.boolValue == true)
+            {
+                // Adjust rect to the second line
+                rect.x += rect.width;
+
+                // Draw enum
+                property = element.FindPropertyRelative("mapTo");
+                EditorGUI.PropertyField(rect, property, GUIContent.none);
+            }
+
+            // Revert the rectangle
+            rect.x = originalX;
+            rect.width = originalWidth;
+        }
+
+        private static void DrawFontsListElement(SerializedProperty element, Rect rect)
+        {
+            // Adjust rect to the first line
+            rect.y += EditorUiUtility.VerticalMargin;
+            rect.height = EditorGUIUtility.singleLineHeight;
+
+            // Grab the relevant element
+            element.objectReferenceValue = EditorGUI.ObjectField(rect, element.objectReferenceValue, typeof(TMPro.FontStyles), true);
+        }
+
+        private void DrawFontsListHeader(Rect rect)
+        {
+            EditorGUI.LabelField(rect, "Associated Fonts");
         }
         #endregion
     }
