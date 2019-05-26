@@ -98,7 +98,7 @@ MonoBehaviour:
   isEnd: 0
   log: A month has passed. Despite a flurry of reports two weeks ago, the only documented
     discovery we have made are the flourescent organisms. While that is exciting on
-    its own, the crew members insist there has to be more.
+    its own, the crew members insist there has to be more on this satellite.
 --- !u!114 &114155927522426068
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -177,8 +177,8 @@ MonoBehaviour:
   log: One of the crew members had an accident, and needed immediate medical attention.
     Fortunately, it turns out we had a patch of stem-cell-aided bandages available
     to us. After a quick a work of identifying the body part, it took only a few days
-    for the stem cells to become copies of the patient's cells, and quickly integrate
-    and repair the injured location.
+    for the stem cells to become copies of the patient's cells, and quickly repaired
+    the injured location.
 --- !u!114 &114253451008903406
 MonoBehaviour:
   m_ObjectHideFlags: 3
