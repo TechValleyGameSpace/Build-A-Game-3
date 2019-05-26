@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random3
+  log: When we began our mission, we were expecting micro-organisms, at best. But
+    today, a crew member claimed they saw a blue crayfish swimming by the window.
+    We tried to follow it, but lost it's track.
 --- !u!114 &114045594284281076
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -94,7 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random3
+  log: A month has passed. Despite a flurry of reports two weeks ago, the only documented
+    discovery we have made are the flourescent organisms. While that is exciting on
+    its own, the crew members insist there has to be more.
 --- !u!114 &114155927522426068
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -108,7 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random3
+  log: Some crew members jokingly started a dance floor in our cramped submarine.
+    When asked to knock it off, they came back claiming the lights outside were like
+    strobe lights. People these days...
 --- !u!114 &114156798199705670
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -374,7 +380,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random3
+  log: Despite being surrounded by it earlier, we never realized that the flourescent
+    light surrounding our submarine are in fact living organisms as well. This is
+    an incredible discovery!
 --- !u!114 &114689514744833104
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -388,7 +396,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random3
+  log: I couldn't believe it. Everyone was woken up by a sudden large music playing
+    in the background. We all started blaming each other for a disruption, but one
+    crew member looked outside and found an extraordinary sight. On a small box, a
+    blue crayfish and a red sea cucumber were having what appeared to be a human-like
+    ritual. The photos we took would amaze all the scientists back home!
 --- !u!114 &114696541236772410
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -448,7 +460,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random3
+  log: A crew member came back to me solemnly last night. Asking what's wrong, they
+    claimed that they didn't see where they were shooting, and accidentally killed
+    a sea cucumber. I wasn't sure how to respond.
 --- !u!114 &114873261494559476
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -476,7 +490,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random3
+  log: Crew members are getting antsy. Over a month went by with no new reports of
+    life. One did, however, claim that they saw what looked like a cube formation.
+    When asked for more details, they said, "oh no, said formation was much smaller
+    and flatter than all the cube's we're surrounded by."
 --- !u!114 &114900565200721528
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -506,7 +523,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random3
+  log: Legend tells of an epic dance-out between a crayfish and the evil space cucumber.
+    While no clear signs of life were found during the first week of Enceladus, I
+    was nonetheless reminded of this story.
 --- !u!114 &114977123836723940
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2405,7 +2424,7 @@ AnimatorStateMachine:
     m_Position: {x: 720, y: 24, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: 1107283594932453518}
-    m_Position: {x: 720, y: 84, z: 0}
+    m_Position: {x: 720, y: 90, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: 1107607608400270360}
     m_Position: {x: 720, y: 144, z: 0}
