@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random1
+  log: I'm a cat. Meow. Humans has instructed to venture into this dangerous mission.
 --- !u!114 &114219101193345292
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -174,7 +174,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random1
+  log: Paw is shaking. Had difficulties finishing the operation on the last mice.
+    Every organ looked so delicious. Humans came back to meow, letting meow know my
+    machine language brain-implant chip learned to make my inner demons appear in
+    my dreams. Had it temporarily disabled during this operation.
 --- !u!114 &114286457451796094
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -216,7 +219,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random1
+  log: After pawtchwork, each mice are meow running in circles again. Got half of
+    them operated already. So annoying. So...tasty-looking. They would go well will
+    catnip and a side of salmon.
 --- !u!114 &114367833170344376
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -230,7 +235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random1
+  log: Operation on first mouse is a success. The sedatives have really done their
+    job. Confirmed no abnormalities on organs when experimental chips were implanted.
 --- !u!114 &114421136320717868
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -342,7 +348,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random1
+  log: Last cat nap, I had a dream. The humans were commanding me to eat the mice.
+    "No!" I screamed, "the mice is a vital part of the experiment. Plus, I take no
+    commands from you lowly humans!"
 --- !u!114 &114645601256046796
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -384,7 +392,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random1
+  log: Today, I have reported my progress through my brain-implant chip, using the
+    latest machine language innovation, auto-cat-to-human-translater! Report should
+    have around a 1.3 hour lag.
 --- !u!114 &114744293626071310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -468,7 +478,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random1
+  log: Growl. Mice is giving me a hard time. The bored ones keep spinning in their
+    cage. The feeble test subjects aren't very good at landing on their feet, however.
+    Cute.
 --- !u!114 &114908153486547732
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -496,7 +508,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnd: 0
-  log: Random1
+  log: I get that they enjoy the lower gravity, but that's no excuse for being impatient.
+    I'm meow considering using sedatives.
 --- !u!114 &114990556627409370
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -2386,30 +2399,30 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 1107283594932453518}
-    second:
-    - {fileID: 1109163491914716094}
-  - first: {fileID: 1107501628236456848}
-    second:
-    - {fileID: 1109230551854856234}
   - first: {fileID: 1107523314678946492}
     second:
     - {fileID: 1109738138674958032}
-  - first: {fileID: 1107543362428582232}
-    second:
-    - {fileID: 1109463011128966876}
-  - first: {fileID: 1107561764945558606}
-    second:
-    - {fileID: 1109422223372191220}
-  - first: {fileID: 1107607608400270360}
-    second:
-    - {fileID: 1109451000963792918}
   - first: {fileID: 1107635788465739504}
     second:
     - {fileID: 1109937273171698592}
+  - first: {fileID: 1107561764945558606}
+    second:
+    - {fileID: 1109422223372191220}
+  - first: {fileID: 1107543362428582232}
+    second:
+    - {fileID: 1109463011128966876}
+  - first: {fileID: 1107501628236456848}
+    second:
+    - {fileID: 1109230551854856234}
   - first: {fileID: 1107787512953029446}
     second:
     - {fileID: 1109898950725775784}
+  - first: {fileID: 1107283594932453518}
+    second:
+    - {fileID: 1109163491914716094}
+  - first: {fileID: 1107607608400270360}
+    second:
+    - {fileID: 1109451000963792918}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
@@ -2436,7 +2449,7 @@ AnimatorStateMachine:
     m_Position: {x: 312, y: 168, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102354004040921512}
-    m_Position: {x: 312, y: 72, z: 0}
+    m_Position: {x: 310, y: 70, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions:
