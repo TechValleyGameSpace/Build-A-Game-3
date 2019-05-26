@@ -16,7 +16,10 @@ namespace Project
         //}
         public void LateUpdate()
         {
-            transform.position = target.position;
+            if (target != null)
+            {
+                transform.position = target.position;
+            }
         }
     }
 }
