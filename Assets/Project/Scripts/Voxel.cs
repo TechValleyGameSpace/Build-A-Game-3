@@ -32,7 +32,7 @@ namespace Project
 
         public Color VoxelColor
         {
-            set => changeColor.material.color = value;
+            set => changeColor.material.SetColor("_BaseColor", value);
         }
 
         public void ExplodeVoxel()
