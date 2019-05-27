@@ -59,5 +59,9 @@ PrefabInstance:
       propertyPath: levels.Array.data[0].scenePath
       value: Assets/Project/Scenes/BuildAGame.unity
       objectReference: {fileID: 0}
+    - target: {fileID: 11428526, guid: d1866c312731e0e438fcc928b4ee86fe, type: 3}
+      propertyPath: loading.scenePath
+      value: Assets/Project/Scenes/Menus/Loading.unity
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1866c312731e0e438fcc928b4ee86fe, type: 3}
