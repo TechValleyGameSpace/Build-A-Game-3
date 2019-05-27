@@ -26,15 +26,11 @@ MonoBehaviour:
       text: Accessibility
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Audio
     allTranslations:
     - languageIndex: 0
       text: Audio
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Back
     allTranslations:
@@ -42,15 +38,11 @@ MonoBehaviour:
       text: Back
     - languageIndex: 1
       text: "\u623B\u308B"
-    - languageIndex: 2
-      text: 
   - key: Camera Sensitivity
     allTranslations:
     - languageIndex: 0
       text: Camera Control's Sensitivity
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Camera Smoothing
     allTranslations:
@@ -58,15 +50,11 @@ MonoBehaviour:
       text: Camera Smoothing
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Click To Start
     allTranslations:
     - languageIndex: 0
       text: Click here to begin!
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Confirmation Title
     allTranslations:
@@ -74,15 +62,11 @@ MonoBehaviour:
       text: Are you sure?
     - languageIndex: 1
       text: "\u672C\u5F53\u306B\uFF1F"
-    - languageIndex: 2
-      text: 
   - key: Continue
     allTranslations:
     - languageIndex: 0
       text: Continue
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Controls
     allTranslations:
@@ -90,23 +74,17 @@ MonoBehaviour:
       text: Controls
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Credits
     allTranslations:
     - languageIndex: 0
       text: Credits
     - languageIndex: 1
       text: "\u30B9\u30BF\u30C3\u30D5"
-    - languageIndex: 2
-      text: 
   - key: Enable
     allTranslations:
     - languageIndex: 0
       text: Enable
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Enable Bloom
     allTranslations:
@@ -114,15 +92,11 @@ MonoBehaviour:
       text: Enable Bloom Effect
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Enable Camera Shakes
     allTranslations:
     - languageIndex: 0
       text: Enable Camera Shakes
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Enable Flashing Effects
     allTranslations:
@@ -130,15 +104,11 @@ MonoBehaviour:
       text: Enable Screen Flashing
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Enable Head Bobbing
     allTranslations:
     - languageIndex: 0
       text: Enable Head Bobbing
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Enable Motion Blurs
     allTranslations:
@@ -146,15 +116,11 @@ MonoBehaviour:
       text: Enable Motion Blurs
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Enter Name Here
     allTranslations:
     - languageIndex: 0
       text: Enter Name Here...
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Graphics
     allTranslations:
@@ -162,16 +128,12 @@ MonoBehaviour:
       text: Graphics
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Hack Warning Intro
     allTranslations:
     - languageIndex: 0
       text: Someone besides the original developers may have uploaded this game without
         their permission. How can they tell?
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Hack Warning Options
     allTranslations:
@@ -189,8 +151,6 @@ MonoBehaviour:
         We don''t take any responsibilities for what might happen next, though.'
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Hack Warning Reasoning Domain Mismatch
     allTranslations:
     - languageIndex: 0
@@ -198,15 +158,11 @@ MonoBehaviour:
         uploaded their game to.
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Hack Warning Reasoning Not Genuine
     allTranslations:
     - languageIndex: 0
       text: Internal tests confirm this game is not genuine.
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Hack Warning Reasoning Unknown Domain
     allTranslations:
@@ -215,23 +171,17 @@ MonoBehaviour:
         their game to.
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Hack Warning Title
     allTranslations:
     - languageIndex: 0
       text: Uh, oh.
     - languageIndex: 1
       text: "\u3042\u308C\uFF1F"
-    - languageIndex: 2
-      text: 
   - key: High Scores
     allTranslations:
     - languageIndex: 0
       text: High Scores
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Horizontal Sensitivity
     allTranslations:
@@ -239,15 +189,11 @@ MonoBehaviour:
       text: Horizontal Sensitivity
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Horizontally
     allTranslations:
     - languageIndex: 0
       text: Horizontally
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: How to Play
     allTranslations:
@@ -255,15 +201,11 @@ MonoBehaviour:
       text: How to Play
     - languageIndex: 1
       text: "\u904A\u3073\u65B9"
-    - languageIndex: 2
-      text: 
   - key: Invert Camera Controls
     allTranslations:
     - languageIndex: 0
       text: Invert Camera Controls
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Invert Movement Controls
     allTranslations:
@@ -271,15 +213,11 @@ MonoBehaviour:
       text: Invert Movement Controls
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Invert Scroll Wheel
     allTranslations:
     - languageIndex: 0
       text: Invert Mouse Scroll-Wheel
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Invincibility Mode
     allTranslations:
@@ -287,39 +225,29 @@ MonoBehaviour:
       text: Invincibility Mode
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Language
     allTranslations:
     - languageIndex: 0
       text: Language
     - languageIndex: 1
       text: "\u5358\u8A9E"
-    - languageIndex: 2
-      text: 
   - key: Level Button
     allTranslations:
     - languageIndex: 0
       text: Level {0}
     - languageIndex: 1
       text: "\u30B9\u30C6\u30FC\u30B8{0}"
-    - languageIndex: 2
-      text: 
   - key: Level Complete Title
     allTranslations:
     - languageIndex: 0
       text: '{0} Complete'
     - languageIndex: 1
       text: "{0}\u30AF\u30EA\u30A2\u30FC"
-    - languageIndex: 2
-      text: 
   - key: Level Failed Title
     allTranslations:
     - languageIndex: 0
       text: '{0} Failed'
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Level Select
     allTranslations:
@@ -327,16 +255,12 @@ MonoBehaviour:
       text: Level Select
     - languageIndex: 1
       text: "\u30B9\u30C6\u30FC\u30B8\u9078\u629E"
-    - languageIndex: 2
-      text: 
   - key: Loading
     allTranslations:
     - languageIndex: 0
       text: Loading...
     - languageIndex: 1
       text: "\u30ED\u30FC\u30C9\u4E2D..."
-    - languageIndex: 2
-      text: 
   - key: Lock Mouse Instructions
     allTranslations:
     - languageIndex: 0
@@ -344,23 +268,17 @@ MonoBehaviour:
         by holding ESC.'
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Main Menu
     allTranslations:
     - languageIndex: 0
       text: Menu
     - languageIndex: 1
       text: "\u30E1\u30CB\u30E5\u30FC"
-    - languageIndex: 2
-      text: 
   - key: Mouse Scroll Wheel
     allTranslations:
     - languageIndex: 0
       text: Mouse Scroll-Wheel
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Movement Sensitivity
     allTranslations:
@@ -368,15 +286,11 @@ MonoBehaviour:
       text: Movement Sensitivity
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Music Volume
     allTranslations:
     - languageIndex: 0
       text: Music Volume
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Mute
     allTranslations:
@@ -384,15 +298,11 @@ MonoBehaviour:
       text: Mute
     - languageIndex: 1
       text: "\u5F31\u97F3"
-    - languageIndex: 2
-      text: 
   - key: Native Language
     allTranslations:
     - languageIndex: 0
       text: English (USA)
     - languageIndex: 1
-      text: "\u65E5\u672C\u8A9E"
-    - languageIndex: 2
       text: Pig Latin (USA)
   - key: New High Score
     allTranslations:
@@ -400,15 +310,11 @@ MonoBehaviour:
       text: New Record!
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: New High Score Place
     allTranslations:
     - languageIndex: 0
       text: '#{0} Place!'
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Next Level
     allTranslations:
@@ -416,23 +322,17 @@ MonoBehaviour:
       text: Next Level
     - languageIndex: 1
       text: "\u6B21\u306E\u30B9\u30C6\u30FC\u30B8"
-    - languageIndex: 2
-      text: 
   - key: No
     allTranslations:
     - languageIndex: 0
       text: No
     - languageIndex: 1
       text: "\u3044\u3044\u3048"
-    - languageIndex: 2
-      text: 
   - key: No High Scores Recorded
     allTranslations:
     - languageIndex: 0
       text: (No Scores Recorded Yet...)
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Options
     allTranslations:
@@ -440,15 +340,11 @@ MonoBehaviour:
       text: Options
     - languageIndex: 1
       text: "\u8A2D\u5B9A"
-    - languageIndex: 2
-      text: 
   - key: Options Invincibility Message
     allTranslations:
     - languageIndex: 0
       text: Enabling this mode prevents the player from taking any damage.
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Options Smooth Camera Hint
     allTranslations:
@@ -458,8 +354,6 @@ MonoBehaviour:
         The higher the value, the more the camera lags behind the mouse movement.
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Options Time Scale Message
     allTranslations:
     - languageIndex: 0
@@ -467,15 +361,11 @@ MonoBehaviour:
         This includes the speed of movement, animations, physics, etc.
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Patreon Button
     allTranslations:
     - languageIndex: 0
       text: Support us on
     - languageIndex: 1
-      text: "\u30B5\u30DD\u30FC\u30C8\u3057\u3066\u304F\u3060\u3055\u3044"
-    - languageIndex: 2
       text: Upportsay usway onway
   - key: Paused Title
     allTranslations:
@@ -483,47 +373,35 @@ MonoBehaviour:
       text: Paused
     - languageIndex: 1
       text: "\u4E00\u6642\u505C\u6B62"
-    - languageIndex: 2
-      text: 
   - key: Play Again
     allTranslations:
     - languageIndex: 0
       text: Play Again!
     - languageIndex: 1
       text: "\u307E\u305F\u904A\u3076"
-    - languageIndex: 2
-      text: 
   - key: Quit
     allTranslations:
     - languageIndex: 0
       text: Quit
     - languageIndex: 1
       text: "\u7D42\u308F\u308B"
-    - languageIndex: 2
-      text: 
   - key: Reset
     allTranslations:
     - languageIndex: 0
       text: Reset
     - languageIndex: 1
       text: "\u30EA\u30BB\u30C3\u30C8"
-    - languageIndex: 2
-      text: 
   - key: Reset Data
     allTranslations:
     - languageIndex: 0
       text: Reset Data
     - languageIndex: 1
       text: "\u30C7\u30FC\u30BF\u3092\u524A\u9664"
-    - languageIndex: 2
-      text: 
   - key: Reset Message
     allTranslations:
     - languageIndex: 0
       text: This will reset all your in-game progress data.
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Restart
     allTranslations:
@@ -531,15 +409,11 @@ MonoBehaviour:
       text: Restart {0}
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Resume
     allTranslations:
     - languageIndex: 0
       text: Resume
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Return To Menu Button
     allTranslations:
@@ -547,15 +421,11 @@ MonoBehaviour:
       text: Return to {0}
     - languageIndex: 1
       text: "{0}\u3078\u623B\u308B"
-    - languageIndex: 2
-      text: 
   - key: Sensitivity
     allTranslations:
     - languageIndex: 0
       text: Sensitivity
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Skip Credits
     allTranslations:
@@ -563,11 +433,11 @@ MonoBehaviour:
       text: Press any key to skip
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Social Media
     allTranslations:
     - languageIndex: 0
+      text: Follow us on
+    - languageIndex: 1
       text: Follow us on
   - key: Sound Effects Volume
     allTranslations:
@@ -575,15 +445,11 @@ MonoBehaviour:
       text: Sound Effects Volume
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Split Camera Sensitivity
     allTranslations:
     - languageIndex: 0
       text: Split Camera Sensitivity By Axis
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Split Movement Sensitivity
     allTranslations:
@@ -591,23 +457,17 @@ MonoBehaviour:
       text: Split Movement Sensitivity By Axis
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Start
     allTranslations:
     - languageIndex: 0
       text: Start
     - languageIndex: 1
       text: "\u30B9\u30BF\u30FC\u30C8"
-    - languageIndex: 2
-      text: 
   - key: Submit Record
     allTranslations:
     - languageIndex: 0
       text: Submit Record
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Text Size
     allTranslations:
@@ -615,23 +475,17 @@ MonoBehaviour:
       text: Text Size
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Time Scale
     allTranslations:
     - languageIndex: 0
       text: Time Scale
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Verifying
     allTranslations:
     - languageIndex: 0
       text: Verifying...
     - languageIndex: 1
-      text: "\u78BA\u8A8D\u4E2D..."
-    - languageIndex: 2
       text: Erifyingvay...
   - key: Vertical Sensitivity
     allTranslations:
@@ -639,15 +493,11 @@ MonoBehaviour:
       text: Vertical Sensitivity
     - languageIndex: 1
       text: 
-    - languageIndex: 2
-      text: 
   - key: Vertically
     allTranslations:
     - languageIndex: 0
       text: Vertically
     - languageIndex: 1
-      text: 
-    - languageIndex: 2
       text: 
   - key: Yes
     allTranslations:
@@ -655,5 +505,3 @@ MonoBehaviour:
       text: Yes
     - languageIndex: 1
       text: "\u306F\u3044"
-    - languageIndex: 2
-      text: 
