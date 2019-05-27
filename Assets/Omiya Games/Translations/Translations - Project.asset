@@ -94,17 +94,23 @@ MonoBehaviour:
         Thanks for playing!'
     - languageIndex: 1
       text: 
+    - languageIndex: 2
+      text: 
   - key: Developer Website's Name
     allTranslations:
     - languageIndex: 0
       text: Omiya Games
     - languageIndex: 1
       text: "\u5927\u5BAE\u30B2\u30FC\u30E0\u30BA"
+    - languageIndex: 2
+      text: Omiya Games
   - key: Game Title
     allTranslations:
     - languageIndex: 0
       text: Template Unity Project
     - languageIndex: 1
+      text: "\u30C6\u30F3\u30D7\u30EC\u30FC\u30C8\u4E00\u25CF\u30E6\u30CB\u30C6\u30A3\u30FC\u25CF\u30D7\u30ED\u30B8\u30A7\u30AF\u30C8"
+    - languageIndex: 2
       text: Ethay Ecursiveray Ollhouseday
   - key: Instructions
     allTranslations:
@@ -150,10 +156,63 @@ MonoBehaviour:
         * When off-track, use the turbo fuel and dive to return back to safety!'
     - languageIndex: 1
       text: 
-  - key: Log Entry 01-1
+    - languageIndex: 2
+      text: 
+  - key: Log Entry 0-1
     allTranslations:
     - languageIndex: 0
       text: Landed on Enceladus, one of Saturn's moons. Beginning research on life...
+  - key: Log Entry 1-1
+    allTranslations:
+    - languageIndex: 0
+      text: I'm a cat. Meow. Humans has instructed to venture into this dangerous
+        mission.
+  - key: Log Entry 1-2
+    allTranslations:
+    - languageIndex: 0
+      text: First week of investigating these waters yielded no sign of life. It is
+        early, but already, I have a sinking about this mission.
+  - key: Log Entry 1-3
+    allTranslations:
+    - languageIndex: 0
+      text: Legend tells of an epic dance-out between a crayfish and the evil space
+        cucumber. While no clear signs of life were found during the first week of
+        Enceladus, I was nonetheless reminded of this story.
+  - key: Log Entry 1-4
+    allTranslations:
+    - languageIndex: 0
+      text: While wading through the waters, I was reminded of the torpedo launcher.
+        Created by TVGS Corporation, the torpedo themselves are designed to penetrate
+        through rocks and ice. Truly a deadly weapon.
+  - key: Log Entry 2-1
+    allTranslations:
+    - languageIndex: 0
+      text: Today, I have reported my progress through my brain-implant chip, using
+        the latest machine language innovation, auto-cat-to-human-translater! Report
+        should have around a 1.3 hour lag.
+  - key: Log Entry 2-2
+    allTranslations:
+    - languageIndex: 0
+      text: Found a single crushed soda can this week. This is unexpected. Entire
+        crew ran through sterilization procedures to verify nothing came out of this
+        submarine.
+  - key: Log Entry 2-3
+    allTranslations:
+    - languageIndex: 0
+      text: When we began our mission, we were expecting micro-organisms, at best.
+        But today, a crew member claimed they saw a blue crayfish swimming by the
+        window. We tried to follow it, but lost it's track.
+  - key: Log Entry 2-4
+    allTranslations:
+    - languageIndex: 0
+      text: The torpedos are propelled by magnetic forces, which makes the launcher
+        a rail gun. It was only the past century or so when innovations to the rail-gun
+        technology made it compact enough to be installed in this submarine.
+  - key: Log Entry 9-1
+    allTranslations:
+    - languageIndex: 0
+      text: Mission investigating Enceladus concluded. Initiating sequence back to
+        home planet, Mars...
   - key: Log Header
     allTranslations:
     - languageIndex: 0
@@ -171,6 +230,10 @@ MonoBehaviour:
     - languageIndex: 0
       text: XZ Plane
   - key: YZ Plane
+    allTranslations:
+    - languageIndex: 0
+      text: YZ Plane
+  - key: Log Entry 3-1
     allTranslations:
     - languageIndex: 0
       text: YZ Plane
