@@ -80,13 +80,13 @@ MonoBehaviour:
   - key: Developer Website's Name
     allTranslations:
     - languageIndex: 0
-      text: Omiya Games
+      text: Tech Valley Game Space
     - languageIndex: 1
-      text: "\u5927\u5BAE\u30B2\u30FC\u30E0\u30BA"
+      text: Tech Valley Game Space
   - key: Game Title
     allTranslations:
     - languageIndex: 0
-      text: Template Unity Project
+      text: Journey Through Enceladus
     - languageIndex: 1
       text: Ethay Ecursiveray Ollhouseday
   - key: Instructions
