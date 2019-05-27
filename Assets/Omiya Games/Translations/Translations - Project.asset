@@ -208,6 +208,12 @@ MonoBehaviour:
       text: The torpedos are propelled by magnetic forces, which makes the launcher
         a rail gun. It was only the past century or so when innovations to the rail-gun
         technology made it compact enough to be installed in this submarine.
+  - key: Log Entry 3-1
+    allTranslations:
+    - languageIndex: 0
+      text: Growl. Mice is giving me a hard time. The bored ones keep spinning in
+        their cage. The feeble test subjects aren't very good at landing on their
+        feet, however. Cute.
   - key: Log Entry 9-1
     allTranslations:
     - languageIndex: 0
@@ -230,10 +236,6 @@ MonoBehaviour:
     - languageIndex: 0
       text: XZ Plane
   - key: YZ Plane
-    allTranslations:
-    - languageIndex: 0
-      text: YZ Plane
-  - key: Log Entry 3-1
     allTranslations:
     - languageIndex: 0
       text: YZ Plane

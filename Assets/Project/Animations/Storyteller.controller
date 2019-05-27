@@ -77,7 +77,7 @@ MonoBehaviour:
     garbage collection company may have landed, and not only illegaly deposited their
     waste, but also performed memory wiping on all individuals involved.
   logKey:
-    key: 
+    key: Log Entry 8-2
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114068599322227618
 MonoBehaviour:
@@ -99,7 +99,7 @@ MonoBehaviour:
     into space, but due to mismanagement, they were thrown underwater. The tractors
     moving the garbage resembled the one we found just yesterday.
   logKey:
-    key: 
+    key: Log Entry 7-2
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114123853315757504
 MonoBehaviour:
@@ -121,7 +121,7 @@ MonoBehaviour:
     discovery we have made are the flourescent organisms. While that is exciting on
     its own, the crew members insist there has to be more on this satellite.
   logKey:
-    key: 
+    key: Log Entry 6-3
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114155927522426068
 MonoBehaviour:
@@ -143,7 +143,7 @@ MonoBehaviour:
     When asked to knock it off, they came back claiming the lights outside were like
     strobe lights. People these days...
   logKey:
-    key: 
+    key: Log Entry 4-3
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114156798199705670
 MonoBehaviour:
@@ -186,7 +186,7 @@ MonoBehaviour:
     looks like crisp and clear. The sensors makes it possible for crew members to
     don a VR headset and experience what it's like to swim in their surroundings.
   logKey:
-    key: 
+    key: Log Entry 5-4
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114224013397131932
 MonoBehaviour:
@@ -231,7 +231,7 @@ MonoBehaviour:
     for the stem cells to become copies of the patient's cells, and quickly repaired
     the injured location.
   logKey:
-    key: 
+    key: Log Entry 8-4
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114253451008903406
 MonoBehaviour:
@@ -254,7 +254,7 @@ MonoBehaviour:
     machine language brain-implant chip learned to make my inner demons appear in
     my dreams. Had it temporarily disabled during this operation.
   logKey:
-    key: 
+    key: Log Entry 8-1
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114286457451796094
 MonoBehaviour:
@@ -319,7 +319,7 @@ MonoBehaviour:
     them operated already. So annoying. So...tasty-looking. They would go well will
     catnip and a side of salmon.
   logKey:
-    key: 
+    key: Log Entry 6-1
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114367833170344376
 MonoBehaviour:
@@ -340,7 +340,7 @@ MonoBehaviour:
   log: Operation on first mouse is a success. The sedatives have really done their
     job. Confirmed no abnormalities on organs when experimental chips were implanted.
   logKey:
-    key: 
+    key: Log Entry 5-1
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114421136320717868
 MonoBehaviour:
@@ -364,7 +364,7 @@ MonoBehaviour:
     how they created something so realistic, they said they used stuff like Vulkan
     and Path Tracing.
   logKey:
-    key: 
+    key: Log Entry 6-4
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114449365087710592
 MonoBehaviour:
@@ -409,7 +409,7 @@ MonoBehaviour:
     network algorithm to learn from simulations of this satellite. I guess there are
     things we made that even we don't know how they work these days.
   logKey:
-    key: 
+    key: Log Entry 7-4
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114504871330552512
 MonoBehaviour:
@@ -452,7 +452,7 @@ MonoBehaviour:
     bottles. The crew has already investigated potential cause, but we are certain
     these artifacts are not coming from our submarine.
   logKey:
-    key: 
+    key: Log Entry 3-2
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114528708711056118
 MonoBehaviour:
@@ -473,7 +473,7 @@ MonoBehaviour:
   log: A crew member pointed out a strange, monstrous shadow behind one of the hills.
     When we drove closer, we found a tractor. How...?
   logKey:
-    key: 
+    key: Log Entry 6-2
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114606482791403006
 MonoBehaviour:
@@ -496,7 +496,7 @@ MonoBehaviour:
     taking the most optimal path. That said, sometimes we have difficulties catching
     up with its directions.
   logKey:
-    key: 
+    key: Log Entry 4-4
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114636355462626954
 MonoBehaviour:
@@ -518,7 +518,7 @@ MonoBehaviour:
     "No!" I screamed, "the mice is a vital part of the experiment. Plus, I take no
     commands from you lowly humans!"
   logKey:
-    key: 
+    key: Log Entry 7-1
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114645601256046796
 MonoBehaviour:
@@ -540,7 +540,7 @@ MonoBehaviour:
     light surrounding our submarine are in fact living organisms as well. This is
     an incredible discovery!
   logKey:
-    key: 
+    key: Log Entry 3-3
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114689514744833104
 MonoBehaviour:
@@ -564,7 +564,7 @@ MonoBehaviour:
     blue crayfish and a red sea cucumber were having what appeared to be a human-like
     ritual. The photos we took would amaze all the scientists back home!
   logKey:
-    key: 
+    key: Log Entry 8-3
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114696541236772410
 MonoBehaviour:
@@ -628,7 +628,7 @@ MonoBehaviour:
     we encountered an underwater. This shouldn't be! Nobody should have arrived to
     Enceladus before us!
   logKey:
-    key: 
+    key: Log Entry 4-2
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114865912355685782
 MonoBehaviour:
@@ -650,7 +650,7 @@ MonoBehaviour:
     claimed that they didn't see where they were shooting, and accidentally killed
     a sea cucumber. I wasn't sure how to respond.
   logKey:
-    key: 
+    key: Log Entry 5-3
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114873261494559476
 MonoBehaviour:
@@ -672,7 +672,7 @@ MonoBehaviour:
     It, too, was built from years and years of research, putting together by the latest
     graphene and boron technology. Without it, this mission wouldn't be possible.
   logKey:
-    key: 
+    key: Log Entry 3-4
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114899298046353966
 MonoBehaviour:
@@ -695,7 +695,7 @@ MonoBehaviour:
     When asked for more details, they said, "oh no, said formation was much smaller
     and flatter than all the cube's we're surrounded by."
   logKey:
-    key: 
+    key: Log Entry 7-3
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114900565200721528
 MonoBehaviour:
@@ -760,7 +760,7 @@ MonoBehaviour:
   log: I get that they enjoy the lower gravity, but that's no excuse for being impatient.
     I'm meow considering using sedatives.
   logKey:
-    key: 
+    key: Log Entry 4-1
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!114 &114990556627409370
 MonoBehaviour:
@@ -781,7 +781,7 @@ MonoBehaviour:
   log: I woke up last night with a cold-sweat. It was of a garbage collection operation,
     where we were tasked to launch them out of space. The smell...was overwhelming.
   logKey:
-    key: 
+    key: Log Entry 5-2
     dictionary: {fileID: 11400000, guid: 0c75d05586af1ab4ab8e59ba091e1195, type: 2}
 --- !u!1101 &1101027743004764690
 AnimatorStateTransition:
@@ -2658,30 +2658,30 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 1107283594932453518}
-    second:
-    - {fileID: 1109163491914716094}
-  - first: {fileID: 1107501628236456848}
-    second:
-    - {fileID: 1109230551854856234}
   - first: {fileID: 1107523314678946492}
     second:
     - {fileID: 1109738138674958032}
-  - first: {fileID: 1107543362428582232}
-    second:
-    - {fileID: 1109463011128966876}
-  - first: {fileID: 1107561764945558606}
-    second:
-    - {fileID: 1109422223372191220}
-  - first: {fileID: 1107607608400270360}
-    second:
-    - {fileID: 1109451000963792918}
   - first: {fileID: 1107635788465739504}
     second:
     - {fileID: 1109937273171698592}
+  - first: {fileID: 1107561764945558606}
+    second:
+    - {fileID: 1109422223372191220}
+  - first: {fileID: 1107543362428582232}
+    second:
+    - {fileID: 1109463011128966876}
+  - first: {fileID: 1107501628236456848}
+    second:
+    - {fileID: 1109230551854856234}
   - first: {fileID: 1107787512953029446}
     second:
     - {fileID: 1109898950725775784}
+  - first: {fileID: 1107283594932453518}
+    second:
+    - {fileID: 1109163491914716094}
+  - first: {fileID: 1107607608400270360}
+    second:
+    - {fileID: 1109451000963792918}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}

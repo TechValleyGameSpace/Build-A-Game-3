@@ -18,6 +18,7 @@ namespace Project
         private TranslatedString prependBeforeLogKey = new TranslatedString("Log Header");
         [SerializeField]
         [Multiline]
+        [Community.UI.ReadOnly]
         private string log;
         [SerializeField]
         private TranslatedString logKey = new TranslatedString("Log Entry 01-1");
