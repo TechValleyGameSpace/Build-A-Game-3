@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using OmiyaGames.Translations;
 
 namespace Project
 {
@@ -11,9 +12,15 @@ namespace Project
 
         [SerializeField]
         private bool isEnd = false;
+
+        [Header("Log")]
+        [SerializeField]
+        private TranslatedString prependBeforeLogKey = new TranslatedString("Log Header");
         [SerializeField]
         [Multiline]
         private string log;
+        [SerializeField]
+        private TranslatedString logKey = new TranslatedString("Log Entry 01-1");
 
         private readonly StringBuilder builder = new StringBuilder();
 
@@ -29,8 +36,8 @@ namespace Project
             if(history != null)
             {
                 builder.Clear();
-                builder.AppendFormat(PrependBeforeLog, history.Count);
-                builder.AppendFormat(log, history.Count);
+                builder.AppendFormat(prependBeforeLogKey.ToString(), history.Count);
+                builder.AppendFormat(logKey.ToString());
                 history.AddLog(this, builder.ToString());
             }
         }

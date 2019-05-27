@@ -20,6 +20,14 @@ MonoBehaviour:
   presetMessageWhenTranslationNotFound: <Translation Not Found>
   replaceEmptyStringWithDefaultText: 1
   translations:
+  - key: 3D Follow
+    allTranslations:
+    - languageIndex: 0
+      text: 3D Follow
+  - key: Click Here
+    allTranslations:
+    - languageIndex: 0
+      text: Click Here to Move in This Plane!
   - key: Credits Full
     allTranslations:
     - languageIndex: 0
@@ -162,7 +170,27 @@ MonoBehaviour:
       text: 
     - languageIndex: 2
       text: 
+  - key: Log Entry 01-1
+    allTranslations:
+    - languageIndex: 0
+      text: Landed on Enceladus, one of Saturn's moons. Beginning research on life...
+  - key: Log Header
+    allTranslations:
+    - languageIndex: 0
+      text: 'Log {0:00}: '
   - key: New High Score Format
     allTranslations:
     - languageIndex: 0
       text: 'Score: {0}'
+  - key: XY Plane
+    allTranslations:
+    - languageIndex: 0
+      text: XY Plane
+  - key: XZ Plane
+    allTranslations:
+    - languageIndex: 0
+      text: XZ Plane
+  - key: YZ Plane
+    allTranslations:
+    - languageIndex: 0
+      text: YZ Plane
