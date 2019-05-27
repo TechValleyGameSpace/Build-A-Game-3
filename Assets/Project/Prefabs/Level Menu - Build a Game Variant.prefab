@@ -397,6 +397,21 @@ PrefabInstance:
       propertyPath: defaultSettings.startState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2935744609332872764, guid: d70875a0e26ee6a45a196af88b53fc2e,
+        type: 3}
+      propertyPath: controlsButton.enabledFor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935744609332872764, guid: d70875a0e26ee6a45a196af88b53fc2e,
+        type: 3}
+      propertyPath: resetDataButton.enabledFor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935744609332872764, guid: d70875a0e26ee6a45a196af88b53fc2e,
+        type: 3}
+      propertyPath: languageButton.enabledFor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2935407233462939801, guid: d70875a0e26ee6a45a196af88b53fc2e,
         type: 3}
       propertyPath: m_Color.g
@@ -480,7 +495,7 @@ PrefabInstance:
     - target: {fileID: 2932759609148039011, guid: d70875a0e26ee6a45a196af88b53fc2e,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 22
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2932759609148039011, guid: d70875a0e26ee6a45a196af88b53fc2e,
         type: 3}
@@ -502,6 +517,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2932759609148039011, guid: d70875a0e26ee6a45a196af88b53fc2e,
+        type: 3}
+      propertyPath: m_text
+      value: Journey Through Enceladus
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932759609148039011, guid: d70875a0e26ee6a45a196af88b53fc2e,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 83
+      objectReference: {fileID: 0}
     - target: {fileID: 2935227151874132281, guid: d70875a0e26ee6a45a196af88b53fc2e,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -521,6 +546,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2935973733954151989, guid: d70875a0e26ee6a45a196af88b53fc2e,
+        type: 3}
+      propertyPath: m_padding
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 2932798164726550497, guid: d70875a0e26ee6a45a196af88b53fc2e,
         type: 3}

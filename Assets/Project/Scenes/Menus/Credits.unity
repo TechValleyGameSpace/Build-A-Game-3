@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.027176943, g: 0.031091413, b: 0.017299118, a: 1}
+  m_IndirectSpecularColor: {r: 0.027176946, g: 0.031091418, b: 0.017299123, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -476,6 +476,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.materialCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385478779461350196, guid: e34db13fc4f4b7b4fbfd6fe479a89a4e,
+        type: 3}
+      propertyPath: links.Array.data[0].urlToOpen
+      value: https://www.patreon.com/TechValleyGameSpace
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385478779461350196, guid: e34db13fc4f4b7b4fbfd6fe479a89a4e,
+        type: 3}
+      propertyPath: links.Array.data[2].urlToOpen
+      value: https://creativecommons.org/licenses/by/4.0/
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385478779461350196, guid: e34db13fc4f4b7b4fbfd6fe479a89a4e,
+        type: 3}
+      propertyPath: links.Array.data[2].linkId
+      value: cc-by
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e34db13fc4f4b7b4fbfd6fe479a89a4e, type: 3}
