@@ -62,7 +62,7 @@ MonoBehaviour:
     - type: 0
       text: )
     asSlug: 0
-  buildNumber: 1
+  buildNumber: 2
   enableStrictMode: 0
   enableAssertions: 0
   customScenes:
@@ -197,7 +197,7 @@ MonoBehaviour:
     - type: 0
       text: )
     asSlug: 0
-  buildNumber: 1
+  buildNumber: 2
   enableStrictMode: 0
   enableAssertions: 0
   customScenes:
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentSetting: {fileID: 114269241718195048}
   archiveSettings:
-    enable: 0
+    enable: 1
     type: 0
     fileName:
       names:
@@ -334,7 +334,7 @@ MonoBehaviour:
     - type: 0
       text: )
     asSlug: 0
-  buildNumber: 1
+  buildNumber: 2
   enableStrictMode: 0
   enableAssertions: 0
   customScenes:
@@ -423,7 +423,7 @@ MonoBehaviour:
     - type: 0
       text: )
     asSlug: 0
-  buildNumber: 1
+  buildNumber: 2
   enableStrictMode: 0
   enableAssertions: 0
   customScenes:
