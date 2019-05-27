@@ -6,8 +6,11 @@ using OmiyaGames.Global;
 
 namespace Project
 {
-    public class Collectable : OmiyaGames.PooledObject
+    public class Collectable : PooledObject
     {
+        [SerializeField]
+        private Color flashScreenColor = Color.white;
+
         public StoryHistory Logs
         {
             private get;
@@ -22,6 +25,8 @@ namespace Project
                 if(player != null)
                 {
                     player.CollectibleSound.Play();
+                    Singleton.Get<CameraManager>().Effects.FlashOnce(flashScreenColor);
+                    Singleton.Get<TimeManager>().HitPause();
                 }
                 if(Logs != null)
                 {

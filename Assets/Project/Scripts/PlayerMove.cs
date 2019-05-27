@@ -47,6 +47,9 @@ namespace Project
         [Header("Sound Effects")]
         [SerializeField]
         OmiyaGames.Audio.SoundEffect collectibleSound;
+        [SerializeField]
+        [Range(0f, 1f)]
+        float screenShakeIntensity = 0.25f;
 
         Rigidbody body;
         Vector3 move;
@@ -140,6 +143,7 @@ namespace Project
             if ((CrossPlatformInputManager.GetButton("Fire1") == true) && ((Time.time - lastShot) > cooldownDurationSeconds))
             {
                 Torpedo clone = Singleton.Get<PoolingManager>().GetInstance(projectilePrefab, spawnPoint.position, spawnPoint.rotation);
+                Singleton.Get<CameraManager>().Effects.ShakeOnce(screenShakeIntensity);
                 //clone.transform.position = transform.position;
                 //clone.transform.rotation = transform.rotation;
                 lastShot = Time.time;
